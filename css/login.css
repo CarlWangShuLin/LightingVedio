@@ -1,12 +1,17 @@
+body{
+    background-color: black !important;
+}
 .container{
-    width: 500px;
     margin: auto;
     margin-top: 50px;
     text-align: center;
 }
 
 .lvlogo{
-    width: 300px;
-    margin-left: 520px;
-    margin-top: 200px;
+    width: 100px;
+}
+
+.login_submit{
+    background-color:#f8b13e !important;
+    border-color: #f8b13e !important;
 }
