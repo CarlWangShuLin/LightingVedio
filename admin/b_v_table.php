@@ -52,6 +52,7 @@ require_once('../includes/header.php');
          <tr>
            <th>Blogs ID</th>
             <th>Blogs Title</th>
+            <th>Blogs date</th>
             <th>Blog Contents</th>
             <th>Account ID</th>
           </tr>
@@ -62,6 +63,7 @@ require_once('../includes/header.php');
             echo "<tr>";
             echo "<td>" . $row["bg_id"] . "</td>";
             echo "<td>" . $row["bg_title"] . "</td>";
+            echo "<td>" . $row["bg_date"] . "</td>";
             echo "<td>" . $row["bg_contents"] . "</td>";
             echo "<td>" . $row["ac_id"] . "</td>";
             echo "</tr>";
