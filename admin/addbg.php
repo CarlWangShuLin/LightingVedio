@@ -1,7 +1,14 @@
 
 <?php
 require_once('../includes/db.php');
+require_once('../includes/tableheader.php');
+?>
 
+   <div class="admin">
+   <a href="table.php?page=blog_video" class="btn btn-primary btn-icon-split">               
+                  <span class="text">Back</span>
+                  </a>
+<?php
 //require_once('../includes/head.php');
 
 if (isset($_POST['submit'])) {
@@ -25,29 +32,30 @@ if (isset($_POST['submit'])) {
                             <div class="col-lg-6" style="margin-left:25%;">
                                 <div class="form-group has-success" >
                                     <label class="control-label" for="inputSuccess"> Blog ID </label>
-                                    <input type="number" class="form-control" name="bg_id" placeholder="<?php echo 'number' ?>">
+                                    <input type="number" class="form-control" name="bg_id" placeholder="<?php echo 'number' ?>" required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Blog title </label>
-                                    <input type="text" class="form-control" name="bg_title" placeholder="<?php echo 'title' ?>">
+                                    <input type="text" class="form-control" name="bg_title" placeholder="<?php echo 'title' ?>" required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Blog date </label>
-                                    <input type="date" class="form-control" name="bg_date" placeholder="<?php echo 'date' ?>">
+                                    <input type="date" class="form-control" name="bg_date" placeholder="<?php echo 'date' ?>" required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Blog contents </label>
-                                    <input type="text" class="form-control" name="bg_contents" placeholder="<?php echo 'contents' ?>">
+                                    <input type="text" class="form-control" name="bg_contents" placeholder="<?php echo 'contents' ?>" required>
                                 </div>
                                 <div class="form-group has-success" >
                                     <label class="control-label" for="inputSuccess"> Account ID </label>
-                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>">
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
                                 </div>
-                                <button name="submit" class="btn">Submit</button>
+                                <button name="submit" class="text">Submit</button>
                             </div>
                         </form>
                         </div>
-                    
+ </div>
+     <!-- admin end -->                    
 <?php
 
 mysqli_close($connection);

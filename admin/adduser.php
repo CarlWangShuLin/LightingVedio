@@ -1,7 +1,14 @@
-
 <?php
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
 require_once('../includes/db.php');
+require_once('../includes/tableheader.php');
+?>
 
+   <div class="admin">
+   <a href="table.php" class="btn btn-primary btn-icon-split">               
+                  <span class="text">Back</span>
+                  </a>
+<?php
 //require_once('../includes/head.php');
 
 if (isset($_POST['submit'])) {
@@ -26,37 +33,38 @@ if (isset($_POST['submit'])) {
                             <div class="col-lg-6" style="margin-left:25%;">
                                 <div class="form-group has-success" >
                                     <label class="control-label" for="inputSuccess"> Account id </label>
-                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>">
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Account name </label>
-                                    <input type="text" class="form-control" name="ac_name" placeholder="<?php echo 'name' ?>">
+                                    <input type="text" class="form-control" name="ac_name" placeholder="<?php echo 'name' ?>"required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Account password </label>
-                                    <input type="text" class="form-control" name="ac_password" placeholder="<?php echo 'password' ?>">
+                                    <input type="text" class="form-control" name="ac_password" placeholder="<?php echo 'password' ?>"required>
                                 </div>
                                 <div class="form-group has-success" >
                                     <label class="control-label" for="inputSuccess"> Age </label>
-                                    <input type="number" class="form-control" name="ac_age" placeholder="<?php echo 'age' ?>">
+                                    <input type="number" class="form-control" name="ac_age" placeholder="<?php echo 'age' ?>"required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Phone </label>
-                                    <input type="number" class="form-control" name="ac_phone" placeholder="<?php echo 'phone' ?>">
+                                    <input type="number" class="form-control" name="ac_phone" placeholder="<?php echo 'phone' ?>"required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Email </label>
-                                    <input type="text" class="form-control" name="ac_email" placeholder="<?php echo 'emali' ?>">
+                                    <input type="email" class="form-control" name="ac_email" placeholder="<?php echo 'emali' ?>"required>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> type </label>
-                                    <input type="text" class="form-control" name="ac_type" placeholder="<?php echo 'type' ?>">
+                                    <input type="text" class="form-control" name="ac_type" placeholder="<?php echo 'type' ?>"required>
                                 </div>
-                                <button name="submit" class="btn">Submit</button>
+                                <button name="submit" class="text">Submit</button>
                             </div>
                         </form>
                         </div>
-                    
+</div>
+     <!-- admin end -->           
 <?php
 
 mysqli_close($connection);

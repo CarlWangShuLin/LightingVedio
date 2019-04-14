@@ -1,6 +1,14 @@
 <?php
 require_once('../includes/db.php');
-//require_once('../includes/head.php');
+require_once('../includes/tableheader.php');
+?>
+
+   <div class="admin">
+   <a href="table.php" class="btn btn-primary btn-icon-split">               
+                  <span class="text">Back</span>
+                  </a>
+<?php
+
 
 if (isset($_POST['submit'])) {
     $title = $_POST['select1'];
@@ -28,10 +36,10 @@ $result2 = mysqli_query($connection, $query2);
 
     <div class="col-lg-6" style="margin-left:25%;">
         <div class="form-group has-success">
-            <label>Select to delete</label>
+            <label>Select number to delete</label>
             <select name="select1" class="form-control">
                 <option selected="selected">
-                    <?php echo "<--select-->"; ?>
+                    <?php echo "<--Comment number-->"; ?>
                 </option>
                 <?php
                 while ($row2 = mysqli_fetch_array($result2)) {
@@ -40,6 +48,8 @@ $result2 = mysqli_query($connection, $query2);
                 ?>
             </select>
         </div>
-        <button name="submit" class="btn">Submit</button>
+        <button name="submit" class="text">Submit</button>
     </div>
 </form> 
+</div>
+     <!-- admin end -->  

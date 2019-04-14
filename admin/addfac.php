@@ -1,8 +1,14 @@
 
 <?php
 require_once('../includes/db.php');
+require_once('../includes/tableheader.php');
+?>
 
-//require_once('../includes/head.php');
+   <div class="admin">
+   <a href="table.php?page=function" class="btn btn-primary btn-icon-split">               
+                  <span class="text">Back</span>
+                  </a>
+<?php
 
 if (isset($_POST['submit'])) {
     $cm_id = $_POST['cm_id'];
@@ -28,11 +34,12 @@ if (isset($_POST['submit'])) {
                                     <label class="control-label" for="inputSuccess"> Comment ID </label>
                                     <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>">
                                 </div>
-                                <button name="submit" class="btn">Submit</button>
+                                <button name="submit" class="text">Submit</button>
                             </div>
                         </form>
                         </div>
-                    
+ </div>
+     <!-- admin end -->                    
 <?php
 
 mysqli_close($connection);

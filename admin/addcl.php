@@ -1,8 +1,14 @@
 
 <?php
 require_once('../includes/db.php');
+require_once('../includes/tableheader.php');
+?>
 
-//require_once('../includes/head.php');
+   <div class="admin">
+   <a href="table.php?page=an_co" class="btn btn-primary btn-icon-split">               
+                  <span class="text">Back</span>
+                  </a>
+<?php
 
 if (isset($_POST['submit'])) {
     $cl_id = $_POST['cl_id'];
@@ -27,17 +33,18 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Collection name </label>
-                                    <input type="text" class="form-control" name="cl_name" placeholder="<?php echo 'name' ?>">
+                                    <input type="text" class="form-control" name="cl_name" placeholder="<?php echo 'name' ?>" required>
                                 </div>                
                                 <div class="form-group has-success" >
                                     <label class="control-label" for="inputSuccess"> Account ID </label>
-                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'age' ?>">
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'age' ?>" required>
                                 </div>
-                                <button name="submit" class="btn">Submit</button>
+                                <button name="submit" class="text">Submit</button>
                             </div>
                         </form>
                         </div>
-                    
+ </div>
+     <!-- admin end -->                      
 <?php
 
 mysqli_close($connection);
