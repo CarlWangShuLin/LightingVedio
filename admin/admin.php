@@ -10,6 +10,8 @@ if (isset($_GET['page'])) {
     $page = 'default';
 }
 if ($page == 'default') {
+    include("chart.php");
+} else if ($page == 'table') {
     include("a_c_table.php");
 } else if ($page == 'blog_video') {
     include("b_v_table.php");

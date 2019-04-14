@@ -30,12 +30,12 @@
             <div class="navigation">
                 <div id="smoothmenu1" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="chart.php" class="staticlinks">Chart</a></li>
-                        <li><a href="table.php" class="staticlinks" >Table list</a>
+                        <li><a href="admin.php" class="staticlinks">Chart</a></li>
+                        <li><a href="admin.php?page=table" class="staticlinks" >Table list</a>
                             <ul>
-                                <li><a href="table.php?page=blog_video">Blog video table</a></li>
-                                <li><a href="table.php?page=an_co">an and co table</a></li>
-                                <li><a href="table.php?page=function">Function table</a></li>
+                                <li><a href="admin.php?page=blog_video">Blog video table</a></li>
+                                <li><a href="admin.php?page=an_co">an and co table</a></li>
+                                <li><a href="admin.php?page=function">Function table</a></li>
                             </ul>
                         </li>
                             </ul>

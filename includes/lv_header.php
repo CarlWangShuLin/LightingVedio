@@ -8,15 +8,10 @@ require('includes/db.php');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Lighting Video</title>
-
-<!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/lv_table.css" rel="stylesheet">
-    
 <!--// Stylesheets //-->
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
 <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
-
 <!--// Javascript //-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
@@ -80,8 +75,8 @@ require('includes/db.php');
                     </li>
                     <li><a href="ranklist_videos.php" class="staticlinks">Rank lists</a>
                         <ul>
-                            <li><a href="ranklist_videos.php">videos</a></li>
-                            <li><a href="ranklist_blogs.php">blogs</a></li>
+                            <li><a href="ranklist_videos.php">Rank list of videos</a></li>
+                            <li><a href="ranklist_blogs.php">Rank list of blogs</a></li>
                       	</ul>
                     </li>                    	
                 </ul>
