@@ -71,7 +71,7 @@ require('includes/db.php');
                 <ul>
                     <li><a href="index.php" class="staticlinks">Home</a></li>
                     <li><a href="videos.php" class="staticlinks">Videos</a></li>
-                    <li><a href="blogs.php">Blogs</a>
+                    <li><a href="blog/blogs.php">Blogs</a>
                     </li>
                     <li><a href="ranklist_videos.php" class="staticlinks">Rank lists</a>
                         <ul>
