@@ -6,13 +6,15 @@ require('includes/lv_header.php');
     <div id="content_sec">
     	<!-- Bread Crumb -->
         <div id="crumb">
-        	<h5>You are here:</h5>
-            <ul>
+        	<h5 style="margin-top:0px;">You are here:</h5>
+            <ul style="margin-top:0px;">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us </a></li>
                 <li class="last"><a href="#">Information</a></li>
             </ul>
-            <h5>Upload Video:</h5><input type="file" id="" name="" ><input type="submit" id="" name="">
+            <h5 style="margin-top:0px;">Upload Video:</h5>
+            <input type="file" id="" name="" >
+            <input type="submit" id="" name="">
         </div>
     	<!-- Column 1 -->
         <div class="col1">

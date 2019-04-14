@@ -6,8 +6,8 @@ require('includes/lv_header.php');
     <div id="content_sec">
     	<!-- Bread Crumb -->
         <div id="crumb">
-        	<h5>You are here:</h5>
-            <ul>
+        	<h5 style="margin-top:0px;">You are here:</h5>
+            <ul style="margin-top:0px;">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html">Rank lists</a></li>
             	<li class="last"><a href="ranklist_videos.html">Rank list of blogs</a></li>
