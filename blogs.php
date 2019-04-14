@@ -1,8 +1,9 @@
 <?php
 require_once('includes/lv_header.php');
+$pagelevel = 1;
 ?>
 
-<title>Video 1</title>
+<title>Blogs</title>
 </head>
 
         <div id="content_sec">

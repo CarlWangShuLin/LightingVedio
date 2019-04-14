@@ -35,7 +35,7 @@ require('includes/db.php');
 </style><![endif]--><!-- that's IT-->
 </head>
 <body>
-<span class="biglines">&nbsp;</span>
+<span class="smalllines">&nbsp;</span>
 <!-- Wrapper -->
 <div id="wrapper_sec">
 	<!-- Top Section -->
