@@ -11,9 +11,9 @@
 }
 
 body {
-	background-image: url(../images/bigbg1.jpg);
+	background-image: url(../images/bg2.jpg);
 	background-repeat: no-repeat;
-	background-position: 50% 430px;
+	background-position: 50% 50px;
 	background-color: #000;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
@@ -2715,7 +2715,6 @@ ul.numbrs li {
 #copyrights {
 	width: 100%;
 	background-color: #434343;
-	height: 5%;
 	padding-top: 10px;
 	color: #888888;
 }
