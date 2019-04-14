@@ -4,7 +4,7 @@ require_once('../includes/tableheader.php');
 ?>
 
 <div class="admin">
-<a href="table.php" class="btn btn-primary btn-icon-split">               
+<a href="admin.php?page=table" class="btn btn-primary btn-icon-split">               
                <span class="text">Back</span>
                </a>
 
@@ -23,7 +23,7 @@ $query = "UPDATE accounts SET ac_id='$ac_id', ac_name='$ac_name', ac_password='$
 $query .= "WHERE ac_id= '$ac_id'";
 
 //echo $query;
-header('Location: table.php');
+header('Location: admin.php?page=table');
 mysqli_query($connection, $query);
 }
 

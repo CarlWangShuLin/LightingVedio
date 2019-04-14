@@ -4,7 +4,7 @@ require_once('../includes/tableheader.php');
 ?>
 
    <div class="admin">
-   <a href="table.php?page=an_co" class="btn btn-primary btn-icon-split">               
+   <a href="admin.php?page=an_co" class="btn btn-primary btn-icon-split">               
                   <span class="text">Back</span>
                   </a>
 <?php
@@ -19,7 +19,7 @@ $query = "UPDATE collection SET cl_id='$cl_id', cl_name='$cl_name', ac_id='$ac_i
 $query .= "WHERE cl_id= '$cl_id'";
 
 //echo $query;
-header('Location: an_co_table.php');
+header('Location: admin.php?page=an_co');
 mysqli_query($connection, $query);
 
 }

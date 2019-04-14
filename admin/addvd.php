@@ -5,7 +5,7 @@ require_once('../includes/tableheader.php');
 ?>
 
    <div class="admin">
-   <a href="table.php?page=blog_video" class="btn btn-primary btn-icon-split">               
+   <a href="admin.php?page=blog_video" class="btn btn-primary btn-icon-split">               
                   <span class="text">Back</span>
                   </a>
 <?php
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $query .= "VALUES ('$vd_id', '$vd_name', '$vd_classification') ";
 
     //echo $query;
-    header('Location: b_v_table.php');
+    header('Location:admin.php?page=blog_video');
     mysqli_query($connection, $query);
 }
 ?>
