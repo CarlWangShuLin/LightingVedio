@@ -23,7 +23,7 @@
         <div id="masthead">
             <!-- Logo -->
             <div class="logo">
-        	<a href="index.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
+        	<a href="admin.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
             <img src="../images/lv_logo_2.png" style="width: 70%; margin-bottom: 4px;"></a>
         </div>
             <!-- Navigation -->
