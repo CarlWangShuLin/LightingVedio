@@ -1,66 +1,10 @@
 <?php
-require_once('../includes/db.php');
-require_once('../includes/head.php');
+require_once('includes/lv_header.php');
 ?>
 
 <title>Video 1</title>
 </head>
 
-<body class="bg2">
-    <span class="smalllines">&nbsp;</span>
-    <!-- Wrapper -->
-    <div id="wrapper_sec">
-        <!-- Top Section -->
-        <div class="top_sec">
-            <!-- Top Section Left Links -->
-            <div class="toplinks">
-                <ul>
-                    <li class="first"><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="signup.php">Signup</a></li>
-                    <li><a href="account.php">My account</a></li>
-                </ul>
-            </div>
-            <!-- Top Section right Links -->
-            <div class="links_icons">
-                <ul>
-                    <li class="last lang">Language: <a href="#"><img src="../images/flag1.gif" alt="" /></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <!-- Header -->
-        <div id="masthead">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.php"><img src="../images/logo.png" style="width:100%;"></a>
-            </div>
-            <!-- Navigation -->
-            <div class="navigation">
-                <div id="smoothmenu1" class="ddsmoothmenu">
-                    <ul>
-                        <li><a href="index.php" class="staticlinks">Home</a></li>
-                        <li><a href="videos.php" class="staticlinks">Videos</a></li>
-                        <li><a href="blogs.php">Blogs</a>
-                        </li>
-                        <li><a href="ranklist_videos.php" class="staticlinks">Rank lists</a>
-                            <ul>
-                                <li><a href="ranklist_videos.php">Rank list of videos</a></li>
-                                <li><a href="ranklist_blogs.php">Rank list of blogs</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <!-- Search -->
-            <div class="search">
-                <input type="text" value="Enter keyword to search" id="searchBox" name="s" onblur="if(this.value == '') { this.value = 'Enter keyword to search'; }" onfocus="if(this.value == 'Enter keyword to search') { this.value = ''; }" class="bar" />
-                <a href="#" class="go">&nbsp;</a>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <!-- Content Section -->
         <div id="content_sec">
             <!-- Bread Crumb -->
             <div id="crumb">
