@@ -20,18 +20,20 @@ if (!$result) {
                 <thead>
                     <tr>
                       <th>Blog ID</th>
-                      <th>Name</th>
-                      <th>Contents</th>
-                      <th>User</th>
+                      <th>Title</th>
+                      <th>Date</th>
+                      <th>Content</th>
+                      <th>Account ID</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                     <tr>
                       <th>Blog ID</th>
-                      <th>Name</th>
+                      <th>Title</th>
+                      <th>Date</th>
                       <th>Contents</th>
-                      <th>User</th>
+                      <th>Account ID</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -41,7 +43,8 @@ if (!$result) {
 while ($row = mysqli_fetch_array($result)) {
     echo"<tr>";
     echo"<td>" . $row["bg_id"] . "</td>";
-    echo"<td>" . $row["bg_name"] . "</td>";
+    echo"<td>" . $row["bg_title"] . "</td>";
+    echo"<td>" . $row["bg_date"] . "</td>";
     echo"<td>" . $row["bg_contents"] . "</td>";
     echo"<td>" . $row["ac_id"] . "</td>";
     echo"</tr>";
