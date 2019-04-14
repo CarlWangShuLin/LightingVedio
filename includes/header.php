@@ -31,7 +31,7 @@
                 <div id="smoothmenu1" class="ddsmoothmenu">
                     <ul>
                         <li><a href="chart.php" class="staticlinks">Chart</a></li>
-                        <li><a class="staticlinks" href="table.php" >Table list</a>
+                        <li><a href="table.php" class="staticlinks" >Table list</a>
                             <ul>
                                 <li><a href="table.php?page=blog_video">Blog video table</a></li>
                                 <li><a href="table.php?page=an_co">an and co table</a></li>
