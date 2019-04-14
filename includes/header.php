@@ -7,13 +7,14 @@
         <div class="top_sec">
             <!-- Top Section Left Links -->
             <div class="toplinks">
-                <ul>
-                    <li class="first"><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="signup.php">Signup</a></li>
-                    <li><a href="account.php">My account</a></li>
-                </ul>
-            </div>
+        	<ul style="margin-top: 0px;">
+            	<li class="first"><a href="../index.php">Home</a></li>
+                <li><a href="../login.php">Login</a></li>
+                <li><a href="../login.php">Log out</a></li>
+                <li><a href="../signup.php">Signup</a></li>
+                <li><a href="../account.php">My account</a></li>
+            </ul>
+        </div>
             <!-- Top Section right Links -->
            
         </div>
@@ -22,8 +23,9 @@
         <div id="masthead">
             <!-- Logo -->
             <div class="logo">
-                <a href="index.php"><img src="../images/logo.png" style="width:100%;"></a>
-            </div>
+        	<a href="index.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
+            <img src="../images/lv_logo_2.png" style="width: 70%; margin-bottom: 4px;"></a>
+        </div>
             <!-- Navigation -->
             <div class="navigation">
                 <div id="smoothmenu1" class="ddsmoothmenu">
