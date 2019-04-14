@@ -1,9 +1,8 @@
 <?php
-ini_set("error_reporting","E_ALL & ~E_NOTICE");
 require_once('../includes/db.php');
 require_once('../includes/head.php');
 
-include('../includes/header.php');
+include('../includes/adminhead.php');
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {

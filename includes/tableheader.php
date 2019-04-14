@@ -1,3 +1,8 @@
+<?php
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
+require('../includes/adminlogincheck.php');
+require('../includes/db.php');
+?>
 <html>
 <body>
 <!-- Table JS and CSS --> 
