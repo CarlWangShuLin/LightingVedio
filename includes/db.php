@@ -3,8 +3,8 @@
 // 1. Create a database connection
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass = "5285217";
-$dbname = "2201613130119ead";
+$dbpass = "root";
+$dbname = "lighting_video";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 
