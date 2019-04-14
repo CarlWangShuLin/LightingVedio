@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
             if ($_SESSION['login_level'] == '1')
                 {header ('Location: index.php');}
             if ($_SESSION['login_level'] == '2')
-                {header ('Location: index.php');}
+                {header ('Location: admin/admin.php');}
         
         } else {
             $failed_1 = "Login failed";
