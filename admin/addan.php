@@ -5,7 +5,7 @@ require_once('../includes/tableheader.php');
 ?>
 
    <div class="admin">
-   <a href="table.php?page=an_co" class="btn btn-primary btn-icon-split">               
+   <a href="admin.php?page=an_co" class="btn btn-primary btn-icon-split">               
                   <span class="text">Back</span>
                   </a>
 <?php
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $query .= "VALUES ('$an_id', '$an_name', '$an_contents', '$ac_id') ";
 
     //echo $query;
-    header('Location: an_co_table.php');
+    header('Location: admin.php?page=an_co');
     mysqli_query($connection, $query);
 }
 ?>
