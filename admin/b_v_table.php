@@ -96,7 +96,6 @@ require_once('../includes/adminhead.php');
                   <span class="text">Delete</span>
                   </a>
                 </div>
-</div>
 <!-- button end -->
      
 <!-- DataTales start -->
@@ -170,7 +169,6 @@ require_once('../includes/adminhead.php');
                   <span class="text">Delete</span>
                   </a>
                 </div>
-</div>
 <!-- button end -->
 </div>
 <!-- conten end -->
