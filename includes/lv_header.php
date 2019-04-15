@@ -12,6 +12,7 @@ require('includes/db.php');
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
 <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
+
 <!--// Javascript //-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>

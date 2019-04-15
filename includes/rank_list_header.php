@@ -24,6 +24,7 @@ require('includes/db.php');
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
 <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jason_lv.css" rel="stylesheet" type="text/css" />
 
 <!--// Javascript //-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -48,7 +49,6 @@ require('includes/db.php');
 </style><![endif]--><!-- that's IT-->
 </head>
 <body>
-<span class="biglines">&nbsp;</span>
 <!-- Wrapper -->
 <div id="wrapper_sec">
 	<!-- Top Section -->
