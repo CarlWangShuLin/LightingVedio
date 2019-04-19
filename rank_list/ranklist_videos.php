@@ -1,13 +1,13 @@
 <!-- Lighting Video header -->
 <?php
-require('includes/rank_list_header.php');
+require('../includes/rank_list_header.php');
 ?>
     <!-- Content Section -->
     <div id="content_sec">
         <!-- Rank list -->
         <?php
-            require('includes/db.php');
-            require('includes/table_videos_rank_list.php');
+        
+            require('../includes/table_videos_rank_list.php');
             ?>
 <!-- Footer -->
 
