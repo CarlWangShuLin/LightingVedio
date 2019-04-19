@@ -3,7 +3,7 @@
 require('../includes/rank_list_header.php');
 ?>
     <!-- Content Section -->
-    <div id="content_sec">
+    <div id="content_sec">  
     	<!-- Rank list -->
             <?php
         

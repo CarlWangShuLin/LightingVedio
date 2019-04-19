@@ -58,11 +58,14 @@ require('db.php');
             <!-- Top Section Left Links -->
             <div class="toplinks">
                 <ul style="margin-top: 0px;">
-                    <li class="first"><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="logout.php">Log out</a></li>
-                    <li><a href="signup.php">Signup</a></li>
-                    <li><a href="account.php">My account</a></li>
+                    <li class="first"><a href="../index/index.php">Home</a></li>
+                    <li><a href="../log/login.php">Login</a></li>
+                    <li><a href="../log/logout.php">Log out</a></li>
+                    <li><a href="../log/signup.php">Signup</a></li>
+                    <li><a href="../log/account.php">My account</a></li>
+                    <li><a href="../profile/profile.php">Profile</a></li>
+                    <li><a href="../payment/payment.php">VIP </a></li>
+                    <li><a href="../history/history.php">History </a></li>
                 </ul>
             </div>
             <!-- Top Section right Links -->
@@ -77,21 +80,21 @@ require('db.php');
         <div id="masthead">
             <!-- Logo -->
             <div class="logo">
-                <a href="index.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
+                <a href="../index/index.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
                     <img src="../images/lv_logo_2.png" style="width: 70%; margin-bottom: 4px;"></a>
             </div>
             <!-- Navigation -->
             <div class="navigation">
                 <div id="smoothmenu1" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="index.php" class="staticlinks">Home</a></li>
-                        <li><a href="videos.php" class="staticlinks">Videos</a></li>
-                        <li><a href="blogs.php">Blogs</a>
+                        <li><a href="../index/index.php" class="staticlinks">Home</a></li>
+                        <li><a href="../index/videos.php" class="staticlinks">Videos</a></li>
+                        <li><a href="../blog/blogs.php">Blogs</a>
                         </li>
                         <li><a href="#" class="staticlinks">Rank lists</a>
                             <ul>
-                                <li><a href="ranklist_videos.php">videos</a></li>
-                                <li><a href="ranklist_blogs.php">blogs</a></li>
+                                <li><a href="../rank_list/ranklist_videos.php">videos</a></li>
+                                <li><a href="../rank_list/ranklist_blogs.php">blogs</a></li>
                             </ul>
                         </li>
                     </ul>

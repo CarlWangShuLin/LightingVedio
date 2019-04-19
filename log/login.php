@@ -1,6 +1,6 @@
 <?php
 // make db connection
-require('includes/db.php');
+require('../includes/db.php');
 if (isset($_POST['submit'])) {
     if (
         empty($_POST['ac_name'])  ||
@@ -39,9 +39,9 @@ if (isset($_POST['submit'])) {
             $_SESSION['login_level'] = $row['ac_type'];
             
             if ($_SESSION['login_level'] == '1')
-                {header ('Location: index.php');}
+                {header ('Location: ../index/index.php');}
             if ($_SESSION['login_level'] == '2')
-                {header ('Location: admin/admin.php');}
+                {header ('Location: ../admin/admin.php');}
         
         } else {
             $failed_1 = "Login failed";
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <div style="text-align:right;"><a href="signup.php">No account? Have a signup here</a></div>
-<div style="text-align: center; margin-top: 100px;"><img class="lvlogo" src="images/lv_logo_1.png"><img style="width: 200px; margin-left: 10px;" src="images/lv_logo_2.png"></div>
+<div style="text-align: center; margin-top: 100px;"><img class="lvlogo" src="../images/lv_logo_1.png"><img style="width: 200px; margin-left: 10px;" src="../images/lv_logo_2.png"></div>
 
 <div class="container" style="width:400px;">
     <div class="card card-login mx-auto mt-5">
@@ -111,34 +111,34 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Lighting Video</title>
     <!--// Stylesheets //-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-    <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
-    <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
-    <link href="css/login.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+    <link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="../css/login.css" rel="stylesheet">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/sb-admin.css" rel="stylesheet">
     <!--// Javascript //-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>
-    <script type="text/javascript" src="js/contentslider.js"></script>
-    <script type="text/javascript" src="js/jquery.1.4.2.js"></script>
-    <script type="text/javascript" src="js/jquery.lint.js"></script>
-    <script type="text/javascript" src="js/jquery.scroll.js"></script>
-    <script type="text/javascript" src="js/scroll.js"></script>
-    <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-    <script type="text/javascript" src="js/switch.js"></script>
-    <script type="text/javascript" src="js/tabs.js"></script>
-    <script type="text/javascript" src="js/cufon-yui.js"></script>
-    <script type="text/javascript" src="js/cufon.js"></script>
-    <script type="text/javascript" src="js/font.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/contentslider.js"></script>
+    <script type="text/javascript" src="../js/jquery.1.4.2.js"></script>
+    <script type="text/javascript" src="../js/jquery.lint.js"></script>
+    <script type="text/javascript" src="../js/jquery.scroll.js"></script>
+    <script type="text/javascript" src="../js/scroll.js"></script>
+    <script type="text/javascript" src="../js/jquery.idTabs.min.js"></script>
+    <script type="text/javascript" src="../js/switch.js"></script>
+    <script type="text/javascript" src="../js/tabs.js"></script>
+    <script type="text/javascript" src="../js/cufon-yui.js"></script>
+    <script type="text/javascript" src="../js/cufon.js"></script>
+    <script type="text/javascript" src="../js/font.js"></script>
     <!--[if lte IE 7]><style>.comments .commentlinks{margin-left:250px;}
 .comments .singlebtn{margin-left:380px;}
 .comments ul li:hover .commentlinks{display:inline-block;}
