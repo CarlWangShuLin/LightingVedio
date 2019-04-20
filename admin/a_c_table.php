@@ -77,6 +77,7 @@ require_once('../includes/adminhead.php');
   </div>
 <!-- DataTales end -->
 <!-- button start -->
+
 <div class="button2">             
                   <a href="adduser.php" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
