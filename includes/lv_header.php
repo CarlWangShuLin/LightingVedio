@@ -1,6 +1,6 @@
 <?php
-require('includes/logincheck.php');
-require('includes/db.php');
+require('../includes/logincheck.php');
+require('../includes/db.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,25 +9,25 @@ require('includes/db.php');
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Lighting Video</title>
 <!--// Stylesheets //-->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-<link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="../css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
 
 <!--// Javascript //-->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="js/menu.js"></script>
-<script type="text/javascript" src="js/contentslider.js"></script>
-<script type="text/javascript" src="js/jquery.1.4.2.js"></script>
-<script type="text/javascript" src="js/jquery.lint.js"></script>
-<script type="text/javascript" src="js/jquery.scroll.js"></script>
-<script type="text/javascript" src="js/scroll.js"></script>
-<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="js/switch.js"></script>
-<script type="text/javascript" src="js/tabs.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/cufon.js"></script>
-<script type="text/javascript" src="js/font.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="../js/menu.js"></script>
+<script type="text/javascript" src="../js/contentslider.js"></script>
+<script type="text/javascript" src="../js/jquery.1.4.2.js"></script>
+<script type="text/javascript" src="../js/jquery.lint.js"></script>
+<script type="text/javascript" src="../js/jquery.scroll.js"></script>
+<script type="text/javascript" src="../js/scroll.js"></script>
+<script type="text/javascript" src="../js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../js/switch.js"></script>
+<script type="text/javascript" src="../js/tabs.js"></script>
+<script type="text/javascript" src="../js/cufon-yui.js"></script>
+<script type="text/javascript" src="../js/cufon.js"></script>
+<script type="text/javascript" src="../js/font.js"></script>
 <!--[if lte IE 7]><style>.comments .commentlinks{margin-left:250px;}
 .comments .singlebtn{margin-left:380px;}
 .comments ul li:hover .commentlinks{display:inline-block;}
@@ -54,7 +54,7 @@ require('includes/db.php');
         <!-- Top Section right Links -->
         <div class="links_icons">
         	<ul style="margin-top: 0px;">
-                <li class="last lang">Language: <a href="#"><img src="images/flag1.gif" alt="" /></a></li>
+                <li class="last lang">Language: <a href="#"><img src="../images/flag1.gif" alt="" /></a></li>
             </ul>
         </div>
     </div>
@@ -63,8 +63,8 @@ require('includes/db.php');
     <div id="masthead">
     	<!-- Logo -->
         <div class="logo">
-        	<a href="index.php"><img src="images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
-            <img src="images/lv_logo_2.png" style="width: 70%; margin-bottom: 4px;"></a>
+        	<a href="index.php"><img src="../images/lv_logo_1.png" style="width: 25%; margin-top: 10px;">
+            <img src="../images/lv_logo_2.png" style="width: 70%; margin-bottom: 4px;"></a>
         </div>
         <!-- Navigation -->
         <div class="navigation">
@@ -74,10 +74,10 @@ require('includes/db.php');
                     <li><a href="videos.php" class="staticlinks">Videos</a></li>
                     <li><a href="blogs.php">Blogs</a>
                     </li>
-                    <li><a href="ranklist_videos.php" class="staticlinks">Rank lists</a>
+                    <li><a href="#" class="staticlinks">Rank lists</a>
                         <ul>
-                            <li><a href="ranklist_videos.php">Rank list of videos</a></li>
-                            <li><a href="ranklist_blogs.php">Rank list of blogs</a></li>
+                            <li><a href="rank_list/ranklist_videos.php">Rank list of videos</a></li>
+                            <li><a href="rank_list/ranklist_blogs.php">Rank list of blogs</a></li>
                       	</ul>
                     </li>                    	
                 </ul>

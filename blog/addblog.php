@@ -1,5 +1,5 @@
 <?php
-require_once('includes/db.php');
+require_once('../includes/db.php');
 //require_once('../includes/head.php');
 
 if (isset($_POST['submit'])) {

@@ -1,27 +1,20 @@
 <?php
-require_once('includes/lv_header.php');
-$pagelevel = 1;
+
+require_once('../includes/rank_list_header.php');
+
 ?>
 
 <title>Blogs</title>
 </head>
 
         <div id="content_sec">
-            <!-- Bread Crumb -->
-            <div id="crumb">
-                <h5>You are here:</h5>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us </a></li>
-                    <li class="last"><a href="#">Information</a></li>
-                </ul>
-                <a style="font-size: 24px;" href="addblog.php"><button>Write New Blog</button></a>
-                <a style="font-size: 24px;" href="deblog.php"><button>Choose Blog Delete</button></a>
-            </div>
+            
             <!-- Column 1 -->
             <div class="col1">
                 <div class="blog">
                     <h2 class="heading">Blog List</h2>
+                    <a style="font-size: 24px;" href="addblog.php"><button>Write New Blog</button></a>
+                <a style="font-size: 24px;" href="deblog.php"><button>Choose Blog Delete</button></a>
                     <ul class="bloglisting">
 
 

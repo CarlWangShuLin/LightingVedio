@@ -1,5 +1,5 @@
 <?php
-require_once('includes/db.php');
+require_once('../includes/db.php');
 //require_once('../includes/head.php');
 
 if (isset($_POST['submit'])) {
@@ -40,6 +40,6 @@ $result2 = mysqli_query($connection, $query2);
                 ?>
             </select>
         </div>
-        <button name="submit" class="btn">Submit</button>
+        <button name="submit" class="btn">Select To Delete</button>
     </div>
 </form> 
