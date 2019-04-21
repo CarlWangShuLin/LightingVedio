@@ -17,6 +17,9 @@ require('../includes/db.php');
     <script src="../vendor/tables/dataTables.bootstrap4.min.js"></script>
     <script src="../js/demo/datatables-demo.js"></script>
     <script src="../js/headerjs.js"></script>
-
+    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+    <link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
         </body>
         </html>

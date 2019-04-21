@@ -1,7 +1,6 @@
 <?php
 require_once('../includes/db.php');
 require_once('../includes/tableheader.php');
-//require_once('../includes/head.php');
 ?>
 
 <div class="admin">

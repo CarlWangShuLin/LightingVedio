@@ -3,10 +3,6 @@ require_once('../includes/db.php');
 require_once('../includes/tableheader.php');
 ?>
 
-   <div class="admin">
-   <a href="admin.php?page=table" class="btn btn-primary btn-icon-split">               
-                  <span class="text">Back</span>
-                  </a>
 <?php
 //require_once('../includes/head.php');
 
@@ -27,6 +23,12 @@ if (isset($_POST['submit'])) {
     mysqli_query($connection, $query);
 }
 ?>
+    <div class="admin" id="table">
+   <a href="admin.php?page=table" class="btn btn-primary btn-icon-split">               
+                  <span class="text"> Back</span>
+                  </a>
+               
+
 <div style="margin:auto;">
                         <form role="form" action="adduser.php" method="post" style="backgroud-color: white;">
                             <div class="col-lg-6" style="margin-left:25%;">
@@ -63,7 +65,7 @@ if (isset($_POST['submit'])) {
                         </form>
                         </div>
 </div>
-     <!-- admin end -->           
+     <!-- admin end -->      
 <?php
 
 mysqli_close($connection);
