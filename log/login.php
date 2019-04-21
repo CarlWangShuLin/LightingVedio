@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $ac_password = $_POST['ac_password'];
 
         // Prepare query
-        $query  = "SELECT ac_name, ac_password, ac_type ";
+        $query  = "SELECT ac_id, ac_name, ac_password, ac_type ";
         $query .= "FROM accounts ";
         $query .= "WHERE ac_name = '$ac_name' AND 
         ac_password = '$ac_password' ";
@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
             //Create session variable
             $_SESSION['login_user'] = $ac_name;
             $_SESSION['login_level'] = $row['ac_type'];
+            $_SESSION['login_id'] = $row['ac_id'];
             
             if ($_SESSION['login_level'] == '1')
                 {header ('Location: ../index/index.php');}

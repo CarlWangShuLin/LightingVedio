@@ -11,6 +11,7 @@
 }
 
 body {
+	min-height: 1000px;
 	background-image: url(../images/bg2.jpg);
 	background-repeat: no-repeat;
 	background-position: 50% 50px;
@@ -246,7 +247,9 @@ ul.forms li.textsec textarea {
 =======================================================================
 */
 #wrapper_sec {
+	min-height: 1000px;
 	width: 1020px;
+	height: 100%;
 	margin: 0px auto;
 	z-index: 2;
 }
@@ -568,9 +571,10 @@ ul.forms li.textsec textarea {
 =======================================================================
 */
 #content_sec {
+	min-height: 1000px;
 	position:relative;
 	width: 1020px;
-	height: 1000px;
+	height: 100%;
 	float: left;
 	background-color: #f9f9f9;
 	border: #f9f9f9 solid 10px;
@@ -1959,6 +1963,7 @@ ul.videolist li .rated {
 
 .paginations ul li {
 	float: left;
+	text-align: center;
 }
 
 .paginations ul li.dots {
