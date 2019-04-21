@@ -5,34 +5,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Lighting Video</title>
 <!--// Stylesheets //-->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-<link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
-<link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
-<link href="css/login.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="../css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="../css/login.css" rel="stylesheet">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/sb-admin.css" rel="stylesheet">
 <!--// Javascript //-->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="js/menu.js"></script>
-<script type="text/javascript" src="js/contentslider.js"></script>
-<script type="text/javascript" src="js/jquery.1.4.2.js"></script>
-<script type="text/javascript" src="js/jquery.lint.js"></script>
-<script type="text/javascript" src="js/jquery.scroll.js"></script>
-<script type="text/javascript" src="js/scroll.js"></script>
-<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="js/switch.js"></script>
-<script type="text/javascript" src="js/tabs.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/cufon.js"></script>
-<script type="text/javascript" src="js/font.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="../js/menu.js"></script>
+<script type="text/javascript" src="../js/contentslider.js"></script>
+<script type="text/javascript" src="../js/jquery.1.4.2.js"></script>
+<script type="text/javascript" src="../js/jquery.lint.js"></script>
+<script type="text/javascript" src="../js/jquery.scroll.js"></script>
+<script type="text/javascript" src="../js/scroll.js"></script>
+<script type="text/javascript" src="../js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../js/switch.js"></script>
+<script type="text/javascript" src="../js/tabs.js"></script>
+<script type="text/javascript" src="../js/cufon-yui.js"></script>
+<script type="text/javascript" src="../js/cufon.js"></script>
+<script type="text/javascript" src="../js/font.js"></script>
 <!--[if lte IE 7]><style>.comments .commentlinks{margin-left:250px;}
 .comments .singlebtn{margin-left:380px;}
 .comments ul li:hover .commentlinks{display:inline-block;}
@@ -43,15 +43,15 @@
 <body>
 <?php
 // make db connection
-require('includes/db.php');
+require('../includes/db.php');
 ?>
 
 <?php
-$ac_name = $_POST[ac_name];
-$ac_password = $_POST[ac_password];
-$ac_age = $_POST[ac_age];
-$ac_phone = $_POST[ac_phone];
-$ac_email = $_POST[ac_email];
+$ac_name = $_POST['ac_name'];
+$ac_password = $_POST['ac_password'];
+$ac_age = $_POST['ac_age'];
+$ac_phone = $_POST['ac_phone'];
+$ac_email = $_POST['ac_email'];
 $ac_type = 1;
 
 $query  = "INSERT INTO accounts (ac_name, ac_password, ac_age, ac_phone, ac_email, ac_type ) ";
@@ -59,14 +59,22 @@ $query .= "VALUES ('$ac_name', '$ac_password', '$ac_age', '$ac_phone', '$ac_emai
 mysqli_query($connection, $query);
 ?>
 <div style="text-align:right;"><a href="login.php">Go back to login</a></div>
-        <div style="text-align: center; margin-top: 20px;"><img class="lvlogo" src="images/lv_logo_1.png"><img style="width: 200px; margin-left: 10px;" src="images/lv_logo_2.png"></div>
+        <div style="text-align: center; margin-top: 20px;"><img class="lvlogo" src="../images/lv_logo_1.png"><img style="width: 200px; margin-left: 10px;" src="../images/lv_logo_2.png"></div>
     
         <div class="container" style="width:400px;">
               <div class="card card-login mx-auto mt-5">
                 <div class="card-header" style="font-weight: 600;">
                     <p style="font-size: 26px;">Please fill the blank</p>
-                    <p style="color: red; font-size: 13px; font-family: calibri;"><?php echo $failed_1; ?></p>
-                    <p style="color: red; font-size: 13px; font-family: calibri;"><?php echo $failed_2; ?></p>
+                    <p style="color: red; font-size: 13px; font-family: calibri;"><?php
+                                                                            if (isset($_POST['submit'])) {
+                                                                                echo $failed_1;
+                                                                            }
+                                                                            ?></p>
+                    <p style="color: red; font-size: 13px; font-family: calibri;"><?php
+                                                                            if (isset($_POST['submit'])) {
+                                                                                echo $failed_2;
+                                                                            }
+                                                                            ?></p>
                 </div>
 <div class="card-body">
 <form action="signup.php" method="post">
@@ -120,7 +128,7 @@ document.getElementById("submit").disabled = true;
 </script>
 </div>
 <?php
-if($_POST[submit]){
+if(isset($_POST['submit'])){
     echo '<script>
     alert("Signup Completed!");
     </script>';
