@@ -1,7 +1,6 @@
 <?php
 require_once('../includes/db.php');
-require_once('../includes/head.php');
-require_once('../includes/adminhead.php');
+require_once('../includes/tableheader.php');
 ?>
 
    <div class="admin">
@@ -21,6 +20,7 @@ if (isset($_POST['submit'])) {
     //echo $query;
     header('Location: admin.php?page=table');
     mysqli_query($connection, $query);
+    
 }
 ?>
 <div style="margin:auto;">
