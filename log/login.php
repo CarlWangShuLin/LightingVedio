@@ -38,12 +38,13 @@ if (isset($_POST['submit'])) {
             $_SESSION['login_user'] = $ac_name;
             $_SESSION['login_level'] = $row['ac_type'];
             $_SESSION['login_id'] = $row['ac_id'];
-            
-            if ($_SESSION['login_level'] == '1')
-                {header ('Location: ../index/index.php');}
-            if ($_SESSION['login_level'] == '2')
-                {header ('Location: ../admin/admin.php');}
-        
+
+            if ($_SESSION['login_level'] == '1') {
+                    header('Location: ../index/index.php');
+                }
+            if ($_SESSION['login_level'] == '2') {
+                    header('Location: ../admin/admin.php');
+                }
         } else {
             $failed_1 = "Login failed";
             $failed_2 = "Provided username and password do not match or are invalid.";

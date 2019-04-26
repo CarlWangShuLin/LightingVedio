@@ -88,7 +88,7 @@ require('db.php');
                 <div id="smoothmenu1" class="ddsmoothmenu">
                     <ul>
                         <li><a href="../index/index.php" class="staticlinks">Home</a></li>
-                        <li><a href="../index/videos.php" class="staticlinks">Videos</a></li>
+                        <li><a href="../video/videos.php" class="staticlinks">Videos</a></li>
                         <li><a href="../blog/blogs.php">Blogs</a>
                         </li>
                         <li><a href="#" class="staticlinks">Rank lists</a>

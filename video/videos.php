@@ -6,27 +6,20 @@ require('../includes/rank_list_header.php');
     <div id="content_sec">
     	<!-- Bread Crumb -->
         <div id="crumb">
-        	<h5 style="margin-top:0px;">You are here:</h5>
-            <ul style="margin-top:0px;">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us </a></li>
-                <li class="last"><a href="#">Information</a></li>
-            </ul>
-            <h5 style="margin-top:0px;">Upload Video:</h5>
-            <input type="file" id="" name="" >
-            <input type="submit" id="" name="">
+            <h2>Upload Video:</h2>
+            <form method="POST" action="videos.php" enctype="multipart/form-data">
+                <input type="hidden" name="MAX_FILE_SIZE" >
+                <input type="file" name="myfile" ><br><br>
+                <button name="submit" class="text">Submit</button>
+        </form>
+            </form>
         </div>
+        <br>
     	<!-- Column 1 -->
         <div class="col1">
-            <div class="allvideos_heading">
-            	<h3>All Videos</h3>
-                <p>(Switch to 5000 DVDs)</p>
-            </div>
             <div class="clear"></div>
             <!-- White Section small -->
             <div class="whitesec_search">
-            	<p>356,000 Full Quality Downloadable Videos</p>
-                <a href="#" class="join">Join Now to get them all</a>
                 <div class="smallsearch">
                 	<input type="text" value="Enter keyword to search" id="searchBox3" name="s" onblur="if(this.value == '') { this.value = 'Enter keyword to search'; }" onfocus="if(this.value == 'Enter keyword to search') { this.value = ''; }" class="bar" />
             		<a href="#" class="buttonone"><span>Search</span></a>
@@ -59,7 +52,7 @@ require('../includes/rank_list_header.php');
                     <li>
                     	<a href="#" class="thumb"><span class="add">&nbsp;</span><span class="rated">&nbsp;</span><img src="../images/video2.gif" alt="" /></a>
                         <div class="bigsec">
-                        	<h4><a href="../videoplayer/videoplayer.html" class="colr">Video Title</a></h4>
+                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
                             <div class="clear"></div>
  
                             <div class="clear"></div>
@@ -230,3 +223,7 @@ require('../includes/rank_list_header.php');
 
 </body>
 </html>
+
+<?php
+require('../videoplayer/upload.php');
+?>
