@@ -101,13 +101,18 @@ require_once('../includes/rank_list_header.php');
                         echo "<div style='display:inline;float:right;'>";
                         //echo "<ul class='examples'>";
                         //echo "<li class='warning cancel'>";
-                        
+
                         echo "<a href='deblog.php?bg_id=" . $row["bg_id"] . "' onclick='return del();'><button>Delete</button></a>";
                         //echo "</li>";
                         //echo "</ul>";
                         echo "</div>";
                         echo "<div style='display:inline;float:right;'>";
-                        echo "<button data-toggle='modal' data-target='#myModal1'>Update</button>";
+                        $bgidd = $row["bg_id"];
+                        $bgtitle = $row["bg_title"];
+                        $bgcontents = $row['bg_contents'];
+
+                        //echo $bgidd;
+                        echo "<button data-toggle='modal' data-target='#myModal1' onclick='Values($bgidd,$bgtitle,$bgcontents)' >Update</button>";
                         echo "</div>";
                         // href='upblog.php?bg_id=" . $row["bg_id"] .
                         // "'
@@ -120,50 +125,50 @@ require_once('../includes/rank_list_header.php');
                     echo "</div>";
                     echo "</li>";
                     ?>
-<div class="container" style="z-index:200;">
-        <form method="post" action="upblog.php" class="form-horizontal" role="form" id="myForm1" onsubmit="return">
-            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
-                <div class="modal-dialog">
-                    <!--  显示模态框对话框模型（若不写下一个div则没有颜色）  -->
-                    <div class="modal-content">
-                        <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
-                        <div class="btn-info modal-header">
-                            <h4>Update Blog Information</h4>
-                            <!--  模态框标题  -->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <!--  关闭按钮  -->
-                        </div>
-                        <div class="modal-body">
-                            <!--  模态框内容，我在此处添加一个表单 -->
-                            <form class="form-horizontal" role="form">
-                                <input type="hidden" name="bg_id" value="<?php echo $row["bg_id"]; ?>">
-                                <div class="form-group">
-                                    <label for="bg_title" class="col-sm-2 control-label">Title</label>
-                                    <div class="col-sm-9">
-                                        <textarea rows="2" cols="100" id="bg_title" class="form-control well" name="bg_title"><?php echo $row['bg_title']; ?></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="bg_contents" class="col-sm-2 control-label">Contents</label>
-                                    <div class="col-sm-9">
-                                        <textarea rows="5" cols="100" id="bg_contents" class="form-control well" name="bg_contents"><?php echo $row['bg_contents']; ?></textarea>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="container" style="z-index:200;">
+                        <form method="post" action="upblog.php" class="form-horizontal" role="form" id="myForm1" onsubmit="return">
+                            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                                <div class="modal-dialog">
+                                    <!--  显示模态框对话框模型（若不写下一个div则没有颜色）  -->
+                                    <div class="modal-content">
+                                        <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
+                                        <div class="btn-info modal-header">
+                                            <h4>Update Blog Information</h4>
+                                            <!--  模态框标题  -->
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <!--  关闭按钮  -->
+                                        </div>
+                                        <div class="modal-body">
+                                            <!--  模态框内容，我在此处添加一个表单 -->
+                                            <form class="form-horizontal" role="form">
+                                                <input type="hidden" id="bg_id" name="bg_id" value="">
+                                                <div class="form-group">
+                                                    <label for="bg_title" class="col-sm-2 control-label">Title</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea id="bg_title" rows="2" cols="100" id="bg_title" class="form-control well" name="bg_title"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="bg_contents" class="col-sm-2 control-label">Contents</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea id="bg_contents" rows="5" cols="100" id="bg_contents" class="form-control well" name="bg_contents" ></textarea>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
 
-                        <div class="modal-footer">
-                            <!--  模态框底部样式，一般是提交或者确定按钮 -->
-                            <button type="submit" name="submit" class="btn btn-info">Confirm</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        </div>
+                                        <div class="modal-footer">
+                                            <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                            <button type="submit" name="submit" class="btn btn-info">Confirm</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                        </div>
 
-                    </div><!-- /.modal-content -->
-                </div>
-            </div> <!-- /.modal -->
-        </form>
-    </div>
+                                    </div><!-- /.modal-content -->
+                                </div>
+                            </div> <!-- /.modal -->
+                        </form>
+                    </div>
 
 
 
@@ -179,7 +184,7 @@ require_once('../includes/rank_list_header.php');
     </div>
 
 
-    
+
     <!-- Pagination -->
     <div class="page-icon" style="position:absolute;left:50%;bottom:0;transform: translate(-50%, -50%);">
 
@@ -210,7 +215,17 @@ require_once('../includes/rank_list_header.php');
         </ul>
     </div>
 </div>
+<script>
+    $("#myModal1").modal("hide");
 
+    function Values($bgidd,$bgtitle,$bgcontents) {
+        $("#bg_id").val($bgidd);
+        $("#bg_title").val($bgtitle);
+        $("#bg_contents").val($bgcontents);
+        //document.getElementById('bg_title').value ="$bgtitle";
+        //document.getElementById('bg_contents').value ="$bg_contents";
+    }
+</script>
 
 
 
@@ -231,29 +246,6 @@ require_once('../includes/rank_list_header.php');
         }
     }
 </script>
-<script>
-    document.querySelector('ul.examples li.warning.cancel button').onclick = function() {
-        swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel plx!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function(isConfirm) {
-                if (isConfirm) {
-                    swal("Deleted!", "Your imaginary file has been deleted!", "success");
-                } else {
-                    swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-    };
-</script>
-
 
 <div class="clear"></div>
 <!-- Footer -->
