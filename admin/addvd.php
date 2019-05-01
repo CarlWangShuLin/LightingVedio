@@ -6,10 +6,11 @@ require_once('../includes/db.php');
 if (isset($_POST['submit'])) {
     $vd_id = $_POST['vd_id'];
     $vd_name = $_POST['vd_name'];
+    $vd_filename = $_POST['vd_file'];
     $vd_classification = $_POST['vd_classification'];
     
-    $query  = "INSERT INTO videos (vd_id, vd_name, vd_classification) ";
-    $query .= "VALUES ('$vd_id', '$vd_name', '$vd_classification') ";
+    $query  = "INSERT INTO videos (vd_id, vd_name, vd_file, vd_classification) ";
+    $query .= "VALUES ('$vd_id', '$vd_name', '$vd_file', '$vd_classification') ";
 
     //echo $query;
     header('Location:admin.php?page=blog_video');
