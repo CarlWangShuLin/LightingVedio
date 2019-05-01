@@ -55,7 +55,6 @@ require_once('../includes/adminhead.php');
            <th>Announcements ID</th>
             <th>Announcements Name</th>
             <th>Announcements contents</th>
-            <th>Accounts ID</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -67,7 +66,6 @@ require_once('../includes/adminhead.php');
             echo "<td>" . $row["an_id"] . "</td>";
             echo "<td>" . $row["an_name"] . "</td>";
             echo "<td>" . $row["an_contents"] . "</td>";
-            echo "<td>" . $row["ac_id"] . "</td>";
             echo "<td><button data-toggle='modal' data-target='#updatean'>update</buttone></td>";
             echo "<td><a class='text' href='deletean.php?an_id=" . $row["an_id"] . "'>delete</a></td>";            
             echo "</tr>";
@@ -109,10 +107,6 @@ require_once('../includes/adminhead.php');
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Announcement contents </label>
                                     <input type="text" class="form-control" name="an_contents" placeholder="<?php echo 'contents' ?>" required>
-                                </div>
-                                <div class="form-group has-success" >
-                                    <label class="control-label" for="inputSuccess"> Account ID </label>
-                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'age' ?>" required>
                                 </div>
                                     </form>
                                 </div>
@@ -158,10 +152,6 @@ require_once('../includes/adminhead.php');
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess"> Announcement contents </label>
                                     <input type="text" class="form-control" name="an_contents" placeholder="<?php echo 'contents' ?>" required>
-                                </div>
-                                <div class="form-group has-success" >
-                                    <label class="control-label" for="inputSuccess"> Account ID </label>
-                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'age' ?>" required>
                                 </div>
 
                                     </form>
