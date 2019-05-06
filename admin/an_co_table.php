@@ -27,6 +27,9 @@ require_once('../includes/adminhead.php');
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Announcements information sheet</h6>
+    <!-- button start -->
+    <button data-toggle="modal" data-target="#addan">Add Announcements</button>       
+    <!-- button end-->
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -52,7 +55,8 @@ require_once('../includes/adminhead.php');
            <th>Announcements ID</th>
             <th>Announcements Name</th>
             <th>Announcements contents</th>
-            <th>Accounts ID</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
     </thead>
       <tbody>
@@ -62,7 +66,8 @@ require_once('../includes/adminhead.php');
             echo "<td>" . $row["an_id"] . "</td>";
             echo "<td>" . $row["an_name"] . "</td>";
             echo "<td>" . $row["an_contents"] . "</td>";
-            echo "<td>" . $row["ac_id"] . "</td>";
+            echo "<td><button data-toggle='modal' data-target='#updatean'>update</buttone></td>";
+            echo "<td><a class='text' href='deletean.php?an_id=" . $row["an_id"] . "'>delete</a></td>";            
             echo "</tr>";
         }
          ?>         
@@ -71,110 +76,96 @@ require_once('../includes/adminhead.php');
     </div>
   </div>
 <!-- DataTales end -->
-<!-- button start -->
-<div class="button2">             
-                  <a href="addan.php" class="btn btn-warning btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                      </span>
-                  <span class="text">Add</span>
-                  </a>
+<!-- add pop-up start -->
+<div class="container">
+                <form method="post" action="addan.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="addan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
-                  <a href="updatean.php" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-flag"></i>
-                      </span>
-                  <span class="text">Update</span>
-                  </a>
+                                <div class="btn-info modal-header">
+                                    <h4>Write Announcement</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Announcement ID </label>
+                                    <input type="number" class="form-control" name="an_id" placeholder="<?php echo 'number' ?>">
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Announcement name </label>
+                                    <input type="text" class="form-control" name="an_name" placeholder="<?php echo 'name' ?>" required> 
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Announcement contents </label>
+                                    <input type="text" class="form-control" name="an_contents" placeholder="<?php echo 'contents' ?>" required>
+                                </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- add pop-up end -->
+<!-- update pop-up start -->
+<div class="container">
+                <form method="post" action="updatean.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="updatean" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
-                  <a href="deletean.php" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                      </span>
-                  <span class="text">Delete</span>
-                  </a>
-                </div>
-<!-- button start -->
-     
-<!-- DataTales start -->
-<div class="table">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <!-- /.panel-heading -->
-                    <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Collection information sheet</h6>
-  </div>
-                    <div class="panel-body">            
-          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-   
-         <!--//do a query -->
-         <?php
-        
-        $query = "SELECT * ";
-        $query .= "FROM collection";
-        
-        //echo $query;
-        
-        $result = mysqli_query($connection, $query);
-        
-        if (!$result) {
-            die("query is wrong");
-        }
-        ?>
-<thead>
-         <tr>
-           <th>Collection ID</th>
-            <th>Collection Name</th>
-            <th>Accounts ID</th>
-          </tr>
-    </thead>
-      <tbody>
-      <?php
-        while ($row = mysqli_fetch_array($result)) {
-            echo "<tr>";
-            echo "<td>" . $row["cl_id"] . "</td>";
-            echo "<td>" . $row["cl_name"] . "</td>";
-            echo "<td>" . $row["ac_id"] . "</td>";
-            echo "</tr>";
-        }
-         ?>         
-         </tbody>   
-      </table>
-    </div>
-  </div>
-</div>
-<!-- DataTales end -->
-<!-- button start -->
-<div class="button2">             
-                  <a href="addcl.php" class="btn btn-warning btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                      </span>
-                  <span class="text">Add</span>
-                  </a>
+                                <div class="btn-info modal-header">
+                                    <h4>Update Announcement</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Announcement ID </label>
+                                    <input type="number" class="form-control" name="an_id" placeholder="<?php echo 'number' ?>">
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Announcement name </label>
+                                    <input type="text" class="form-control" name="an_name" placeholder="<?php echo 'name' ?>" required> 
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Announcement contents </label>
+                                    <input type="text" class="form-control" name="an_contents" placeholder="<?php echo 'contents' ?>" required>
+                                </div>
 
-                  <a href="updatecl.php" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-flag"></i>
-                      </span>
-                  <span class="text">Update</span>
-                  </a>
-
-                  <a href="deletecl.php" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                      </span>
-                  <span class="text">Delete</span>
-                  </a>
-                </div>
-<!-- button end -->
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- update pop-up end --> 
 </div>
 <!-- conten end -->
-
-  <script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable({
-        responsive: true
-    });
-});
-</script>

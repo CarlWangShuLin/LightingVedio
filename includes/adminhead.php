@@ -37,7 +37,7 @@ require('../includes/db.php');
                         <li><a href="admin.php?page=table" class="staticlinks" >Table list</a>
                             <ul>
                                 <li><a href="admin.php?page=blog_video">Blog video table</a></li>
-                                <li><a href="admin.php?page=an_co">an and co table</a></li>
+                                <li><a href="admin.php?page=an_co">Announcement</a></li>
                                 <li><a href="admin.php?page=function">Function table</a></li>
                             </ul>
                         </li>

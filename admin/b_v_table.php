@@ -27,6 +27,9 @@ require_once('../includes/adminhead.php');
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Blog information sheet</h6>
+    <!-- button start -->
+    <button data-toggle="modal" data-target="#addbg">Add Blog</button>       
+    <!-- button end-->
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -54,6 +57,8 @@ require_once('../includes/adminhead.php');
             <th>Blogs date</th>
             <th>Blog Contents</th>
             <th>Account ID</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
     </thead>
       <tbody>
@@ -65,6 +70,8 @@ require_once('../includes/adminhead.php');
             echo "<td>" . $row["bg_date"] . "</td>";
             echo "<td>" . $row["bg_contents"] . "</td>";
             echo "<td>" . $row["ac_id"] . "</td>";
+            echo "<td><button data-toggle='modal' data-target='#updatebg'>update</buttone></td>";
+            echo "<td><a class='text' href='deletebg.php?bg_id=" . $row["bg_id"] . "'>delete</a></td>";                             
             echo "</tr>";
         }
          ?>         
@@ -73,31 +80,115 @@ require_once('../includes/adminhead.php');
     </div>
   </div>
 <!-- DataTales end -->
-<!-- button start -->
-<div class="button2">             
-                  <a href="addbg.php" class="btn btn-warning btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                      </span>
-                  <span class="text">Add</span>
-                  </a>
+<!-- add pop-up start -->
+<div class="container">
+                <form method="post" action="addbg.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="addbg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
-                  <a href="updatebg.php" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-flag"></i>
-                      </span>
-                  <span class="text">Update</span>
-                  </a>
+                                <div class="btn-info modal-header">
+                                    <h4>Write Blog</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Blog ID </label>
+                                    <input type="number" class="form-control" name="bg_id" placeholder="<?php echo 'number' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog title </label>
+                                    <input type="text" class="form-control" name="bg_title" placeholder="<?php echo 'title' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog date </label>
+                                    <input type="date" class="form-control" name="bg_date" placeholder="<?php echo 'date' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog contents </label>
+                                    <input type="text" class="form-control" name="bg_contents" placeholder="<?php echo 'contents' ?>" required>
+                                </div>
+                                <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Account ID </label>
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
+                                </div>
 
-                  <a href="deletebg.php" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                      </span>
-                  <span class="text">Delete</span>
-                  </a>
-                </div>
-<!-- button end -->
-     
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- add pop-up end -->
+<!-- update pop-up start -->
+<div class="container">
+                <form method="post" action="updatebg.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="updatebg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
+
+                                <div class="btn-info modal-header">
+                                    <h4>Update Blog</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Blog ID </label>
+                                    <input type="number" class="form-control" name="bg_id" placeholder="<?php echo 'number' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog title </label>
+                                    <input type="text" class="form-control" name="bg_title" placeholder="<?php echo 'title' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog date </label>
+                                    <input type="date" class="form-control" name="bg_date" placeholder="<?php echo 'date' ?>" required>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Blog contents </label>
+                                    <input type="text" class="form-control" name="bg_contents" placeholder="<?php echo 'contents' ?>" required>
+                                </div>
+                                <div class="form-group has-success" >
+                                    <label class="control-label" for="inputSuccess"> Account ID </label>
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
+                                </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- update pop-up end -->  
+
 <!-- DataTales start -->
 <div class="table">
             <div class="col-lg-12">
@@ -105,6 +196,9 @@ require_once('../includes/adminhead.php');
                     <!-- /.panel-heading -->
                     <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Video information sheet</h6>
+    <!-- button start -->
+    <button data-toggle="modal" data-target="#addvd">Add Video</button>       
+    <!-- button end-->
   </div>
                     <div class="panel-body">            
           <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -127,7 +221,10 @@ require_once('../includes/adminhead.php');
          <tr>
            <th>Video ID</th>
             <th>Video name</th>
+            <th>Video file</th>
             <th>Video classification</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
     </thead>
       <tbody>
@@ -136,7 +233,10 @@ require_once('../includes/adminhead.php');
             echo "<tr>";
             echo "<td>" . $row["vd_id"] . "</td>";
             echo "<td>" . $row["vd_name"] . "</td>";
+            echo "<td>" . $row["vd_file"] . "</td>";
             echo "<td>" . $row["vd_classification"] . "</td>";
+            echo "<td><button data-toggle='modal' data-target='#updatevd'>update</buttone></td>";
+            echo "<td><a class='text' href='deletevd.php?vd_id=" . $row["vd_id"] . "'>delete</a></td>";                                       
             echo "</tr>";
         }
          ?>         
@@ -146,30 +246,105 @@ require_once('../includes/adminhead.php');
   </div>
 </div>
 <!-- DataTales end -->
-<!-- button start -->
-<div class="button2">             
-                  <a href="addvd.php" class="btn btn-warning btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                      </span>
-                  <span class="text">Add</span>
-                  </a>
+<!-- add pop-up start -->
+<div class="container">
+                <form method="post" action="addvd.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="addvd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
-                  <a href="updatevd.php" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-flag"></i>
-                      </span>
-                  <span class="text">Update</span>
-                  </a>
+                                <div class="btn-info modal-header">
+                                    <h4>Write Video</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+        <label class="control-label" for="inputSuccess"> Video id </label>
+        <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video name </label>
+        <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video file </label>
+        <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video classification </label>
+        <input type="text" class="form-control" name="vd_classification" placeholder="<?php echo 'classification' ?>" required>
+        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- add pop-up end -->
+<!-- update pop-up start -->
+<div class="container">
+                <form method="post" action="updatevd.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="updatevd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+                        <div class="modal-dialog">
+                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
+                            <div class="modal-content">
+                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
-                  <a href="deletevd.php" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                      </span>
-                  <span class="text">Delete</span>
-                  </a>
-                </div>
-<!-- button end -->
+                                <div class="btn-info modal-header">
+                                    <h4>Update Video</h4>
+                                    <!--  模态框标题模  -->
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--  关闭按钮  -->
+                                </div>
+                                <div class="modal-body">
+                                    <!--  模态框内容，我在此处添加一个表单 -->
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="form-group has-success" >
+        <label class="control-label" for="inputSuccess"> Video id </label>
+        <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video name </label>
+        <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video file </label>
+        <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
+        </div>
+        <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess"> Video classification </label>
+        <input type="text" class="form-control" name="vd_classification" placeholder="<?php echo 'classification' ?>" required>
+        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+                    </div> <!-- /.modal -->
+                </form>              
+      </div>
+<!-- update pop-up end --> 
 </div>
 <!-- conten end -->
 
