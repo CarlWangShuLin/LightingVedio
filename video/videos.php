@@ -2,6 +2,9 @@
 <?php
 require('../includes/rank_list_header.php');
 ?>
+<!DOCTYPE html>
+<html>
+    <body>
     <!-- Content Section -->
     <div id="content_sec">
     	<!-- Bread Crumb -->
@@ -9,11 +12,11 @@ require('../includes/rank_list_header.php');
             <h2>Upload Video:</h2>
             <form method="POST" action="videos.php" enctype="multipart/form-data">
                 <input type="hidden" name="MAX_FILE_SIZE" >
-                <input type="file" name="myfile" ><br><br>
-                <button name="submit" class="text">Submit</button>
-        </form>
+                <input class="btn btn-primary" type="file" name="myfile" >
+                <button type="button" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
         </div>
+        <br>
         <br>
     	<!-- Column 1 -->
         <div class="col1">
@@ -221,7 +224,7 @@ require('../includes/rank_list_header.php');
     </div>
 </div>
 
-</body>
+    </body>
 </html>
 
 <?php
