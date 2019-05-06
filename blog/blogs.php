@@ -90,6 +90,14 @@ require_once('../includes/rank_list_header.php');
                     $query3 = "select ac_name from accounts where ac_id = '$acid'";
                     $result3 = mysqli_query($connection, $query3);
                     $row3 = mysqli_fetch_array($result3);
+
+                    $query4 = "select * from blogs where bg_id = " . $row['bg_id'] . "";
+
+                    $result4 = mysqli_query($connection, $query4);
+                    $row4 = mysqli_fetch_array($result4);
+
+                    $bgidd = $row["bg_id"];
+
                     echo "<li>";
 
                     echo "<div class='desc'>";
@@ -107,12 +115,12 @@ require_once('../includes/rank_list_header.php');
                         //echo "</ul>";
                         echo "</div>";
                         echo "<div style='display:inline;float:right;'>";
-                        $bgidd = $row["bg_id"];
-                        $bgtitle = $row["bg_title"];
-                        $bgcontents = $row['bg_contents'];
+
+                        //$bgtitle = $row["bg_title"];
+                        // $bgcontents = $row['bg_contents'];
 
                         //echo $bgidd;
-                        echo "<button data-toggle='modal' data-target='#myModal1' onclick='Values($bgidd,$bgtitle,$bgcontents)' >Update</button>";
+                        echo "<button data-toggle='modal' data-target='#myModal1' onclick='Value($bgidd)' >Update</button>";
                         echo "</div>";
                         // href='upblog.php?bg_id=" . $row["bg_id"] .
                         // "'
@@ -146,13 +154,17 @@ require_once('../includes/rank_list_header.php');
                                                 <div class="form-group">
                                                     <label for="bg_title" class="col-sm-2 control-label">Title</label>
                                                     <div class="col-sm-9">
-                                                        <textarea id="bg_title" rows="2" cols="100" id="bg_title" class="form-control well" name="bg_title"></textarea>
+                                                        <textarea id="bg_title" rows="2" cols="100" id="bg_title" class="form-control well" name="bg_title"><?php
+                                                                                                                                                            echo $row4["bg_title"];
+                                                                                                                                                            ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="bg_contents" class="col-sm-2 control-label">Contents</label>
                                                     <div class="col-sm-9">
-                                                        <textarea id="bg_contents" rows="5" cols="100" id="bg_contents" class="form-control well" name="bg_contents" ></textarea>
+                                                        <textarea id="bg_contents" rows="5" cols="100" id="bg_contents" class="form-control well" name="bg_contents"><?php
+                                                                                                                                                                        echo $row4['bg_contents'];
+                                                                                                                                                                        ?></textarea>
                                                     </div>
                                                 </div>
                                             </form>
@@ -218,10 +230,10 @@ require_once('../includes/rank_list_header.php');
 <script>
     $("#myModal1").modal("hide");
 
-    function Values($bgidd,$bgtitle,$bgcontents) {
+    function Value($bgidd, $bgtitle, $bgcontents) {
         $("#bg_id").val($bgidd);
-        $("#bg_title").val($bgtitle);
-        $("#bg_contents").val($bgcontents);
+        //$("#bg_title").val($bgtitle);
+        //$("#bg_contents").val($bgcontents);
         //document.getElementById('bg_title').value ="$bgtitle";
         //document.getElementById('bg_contents').value ="$bg_contents";
     }
@@ -231,17 +243,17 @@ require_once('../includes/rank_list_header.php');
 
 <script>
     function del() {
-        if (confirm("确定要删除吗？")) {
-            setTimeout(function() {
-                swal(
-                    "Deleted!",
-                    "Your imaginary file has been deleted!",
-                    "success",
-                );
-            }, 100);
+        if (confirm("Are you sure delete this")) {
+
+            swal(
+                "Deleted!",
+                "Your imaginary file has been deleted!",
+                "success"
+            );
+
             return true;
         } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error")
+            swal("Cancelled", "Your file is safe :)", "error")
             return false;
         }
     }
