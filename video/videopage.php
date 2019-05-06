@@ -1,3 +1,10 @@
+<?php
+//Lighting Video header
+require('../includes/rank_list_header.php');
+require('../includes/db.php');
+require('select.php');
+require('comment.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +24,7 @@
 <script>
 var player = new Aliplayer({
   "id": "player-con",
-  "source": "1080p.mp4",
+  "source": "<?php echo $video ?>",
   "width": "100%",
   "height": "500px",
   "autoplay": true,
@@ -98,68 +105,56 @@ var player = new Aliplayer({
   ]
 }, function (player) {
     player._switchLevel = 0;
-    console.log("播放器创建了。");
   }
 );
 </script>
+
+
 
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
-            <form>
+            <form method="post" action="videopage.php">
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+              <textarea name="content" class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
 
+        <div style="background-color: white !important;">
         <!-- Single Comment -->
+        
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+        <h5 class="mt-0">Commenter Name</h5>
+        <?php echo $content; ?>
+        </div>
         </div>
 
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-          </div>
         </div>
-
-
-
-  </div>
-  <!-- /.container -->
+        </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<?php
+
+if (isset($_POST['submit'])){
+
+  $content = $_POST['content'];
+  
+$query = "INSERT INTO comments (cm_contents) VALUES ('$content')";
+$result = mysqli_query($connection, $query);
+mysqli_query($connection, $query);
+
+}
+
+?>
 
 </body>
 </html>

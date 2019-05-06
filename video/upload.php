@@ -2,7 +2,7 @@
 require_once('../includes/db.php');
 ?>
 <?php
-$save_path = "../videofile/";                               //文件保存路径
+$save_path = "../mp4/";                               //文件保存路径
 $max_size = 100000000000000000000000000000000000000000;  //上传文件最大值
 $allow_type = array('mp4');          //允许上传的类型
 

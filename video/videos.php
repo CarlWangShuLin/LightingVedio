@@ -13,7 +13,7 @@ require('../includes/rank_list_header.php');
             <form method="POST" action="videos.php" enctype="multipart/form-data">
                 <input type="hidden" name="MAX_FILE_SIZE" >
                 <input class="btn btn-primary" type="file" name="myfile" >
-                <button type="button" class="btn btn-primary" name="submit" class="text">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
         </div>
         <br>
@@ -53,7 +53,7 @@ require('../includes/rank_list_header.php');
                 <!-- Video Listing -->
                 <ul class="display">
                     <li>
-                    	<a href="#" class="thumb"><span class="add">&nbsp;</span><span class="rated">&nbsp;</span><img src="../images/video2.gif" alt="" /></a>
+                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
                         <div class="bigsec">
                         	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
                             <div class="clear"></div>
@@ -97,9 +97,9 @@ require('../includes/rank_list_header.php');
                         </div>
                     </li>
                     <li>
-                    	<a href="#" class="thumb"><span class="add">&nbsp;</span><span class="rated">&nbsp;</span><img src="images/video3.gif" alt="" /></a>
+                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
                         <div class="bigsec">
-                        	<h4><a href="detail.html" class="colr">Video Title</a></h4>
+                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
                             <div class="clear"></div>
  
                             <div class="clear"></div>
@@ -141,9 +141,9 @@ require('../includes/rank_list_header.php');
                         </div>
                     </li>
                     <li>
-                    	<a href="#" class="thumb"><span class="add">&nbsp;</span><span class="rated">&nbsp;</span><img src="images/video4.gif" alt="" /></a>
+                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
                         <div class="bigsec">
-                        	<h4><a href="detail.html" class="colr">Video Title</a></h4>
+                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
                             <div class="clear"></div>
  
                             <div class="clear"></div>
@@ -228,5 +228,5 @@ require('../includes/rank_list_header.php');
 </html>
 
 <?php
-require('../videoplayer/upload.php');
+require('../video/upload.php');
 ?>
