@@ -85,51 +85,59 @@ require_once('../includes/rank_list_header.php');
                 if (!$result) {
                     die("query is wrong");
                 }
-                while ($row = mysqli_fetch_array($result)) {
-                    $acid = $row['ac_id'];
+                
+                
+
+
+
+
+                while ($loop = mysqli_fetch_array($result)) {
+                    $acid = $loop['ac_id'];
                     $query3 = "select ac_name from accounts where ac_id = '$acid'";
                     $result3 = mysqli_query($connection, $query3);
                     $row3 = mysqli_fetch_array($result3);
 
-                    $query4 = "select * from blogs where bg_id = " . $row['bg_id'] . "";
-
+                    $query4 = "select * from blogs where bg_id = " . $loop['bg_id'] . "";
                     $result4 = mysqli_query($connection, $query4);
-                    $row4 = mysqli_fetch_array($result4);
+                    
+                    while ($row4 = mysqli_fetch_array($result4)) {
+                        $count = count($row4);
+                        for ($i = 0; $i < $count; $i++) {
+                            unset($row4[$i]);
+                        } //这个地方需要不停的删除已经push到数组的项目，说实话，并没有搞懂，但没有这个语句，执行有问题
+                        array_push($row44, $row4);
+                        $row44 = array();    
+                    }
 
-                    $bgidd = $row["bg_id"];
+
+                    $bgidd = $loop["bg_id"];
 
                     echo "<li>";
 
                     echo "<div class='desc'>";
 
-                    echo "<h3>" . "<a href='' class='colr'>" . $row["bg_title"] . "</a>" . "</h3>";
+                    echo "<h3>" . "<a href='' class='colr'>" . $loop["bg_title"] . "</a>" . "</h3>";
 
                     if ($_SESSION['login_user'] == $row3['ac_name']) {
 
                         echo "<div style='display:inline;float:right;'>";
-                        //echo "<ul class='examples'>";
-                        //echo "<li class='warning cancel'>";
 
-                        echo "<a href='deblog.php?bg_id=" . $row["bg_id"] . "' onclick='return del();'><button>Delete</button></a>";
-                        //echo "</li>";
-                        //echo "</ul>";
+
+                        echo "<a href='deblog.php?bg_id=" . $loop["bg_id"] . "' onclick='return del();'><button>Delete</button></a>";
+                    
                         echo "</div>";
                         echo "<div style='display:inline;float:right;'>";
 
-                        //$bgtitle = $row["bg_title"];
-                        // $bgcontents = $row['bg_contents'];
-
-                        //echo $bgidd;
+                   
                         echo "<button data-toggle='modal' data-target='#myModal1' onclick='Value($bgidd)' >Update</button>";
                         echo "</div>";
-                        // href='upblog.php?bg_id=" . $row["bg_id"] .
-                        // "'
+                       
                     } else { }
 
-                    echo "<p class='time'>" . $row['bg_date'] . "</p>";
+                    echo "<p class='time'>" . $loop['bg_date'] . "</p>";
                     echo "<p class='postedby'>Posted By:" . $row3['ac_name'] . "</p>";
                     echo "<div class='clear'></div>";
-                    echo "<p class='txt'>" . $row['bg_contents'] . "</p>";
+                    echo "<p class='txt'>" . $loop['bg_contents'] . "</p>";
                     echo "</div>";
                     echo "</li>";
                     ?>
@@ -155,7 +163,7 @@ require_once('../includes/rank_list_header.php');
                                                     <label for="bg_title" class="col-sm-2 control-label">Title</label>
                                                     <div class="col-sm-9">
                                                         <textarea id="bg_title" rows="2" cols="100" id="bg_title" class="form-control well" name="bg_title"><?php
-                                                                                                                                                            echo $row4["bg_title"];
+                                                                                                                                                            echo "Please Input Your Blog Title";
                                                                                                                                                             ?></textarea>
                                                     </div>
                                                 </div>
@@ -163,7 +171,7 @@ require_once('../includes/rank_list_header.php');
                                                     <label for="bg_contents" class="col-sm-2 control-label">Contents</label>
                                                     <div class="col-sm-9">
                                                         <textarea id="bg_contents" rows="5" cols="100" id="bg_contents" class="form-control well" name="bg_contents"><?php
-                                                                                                                                                                        echo $row4['bg_contents'];
+                                                                                                                                                                        echo "Please Input Your Blog Contents";
                                                                                                                                                                         ?></textarea>
                                                     </div>
                                                 </div>
@@ -230,12 +238,9 @@ require_once('../includes/rank_list_header.php');
 <script>
     $("#myModal1").modal("hide");
 
-    function Value($bgidd, $bgtitle, $bgcontents) {
+    function Value($bgidd) {
         $("#bg_id").val($bgidd);
-        //$("#bg_title").val($bgtitle);
-        //$("#bg_contents").val($bgcontents);
-        //document.getElementById('bg_title').value ="$bgtitle";
-        //document.getElementById('bg_contents').value ="$bg_contents";
+
     }
 </script>
 
