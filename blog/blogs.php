@@ -100,14 +100,7 @@ require_once('../includes/rank_list_header.php');
                     $query4 = "select * from blogs where bg_id = " . $loop['bg_id'] . "";
                     $result4 = mysqli_query($connection, $query4);
                     
-                    while ($row4 = mysqli_fetch_array($result4)) {
-                        $count = count($row4);
-                        for ($i = 0; $i < $count; $i++) {
-                            unset($row4[$i]);
-                        } //这个地方需要不停的删除已经push到数组的项目，说实话，并没有搞懂，但没有这个语句，执行有问题
-                        array_push($row44, $row4);
-                        $row44 = array();    
-                    }
+
 
 
                     $bgidd = $loop["bg_id"];
