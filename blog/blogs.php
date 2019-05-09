@@ -128,7 +128,7 @@ require_once('../includes/rank_list_header.php');
                     } else { }
 
                     echo "<p class='time'>" . $loop['bg_date'] . "</p>";
-                    echo "<p class='postedby'>Posted By:" . $row3['ac_name'] . "</p>";
+                    echo "<p class='postedby'>Posted By:      " . $row3['ac_name'] . "</p>";
                     echo "<div class='clear'></div>";
                     echo "<p class='txt'>" . $loop['bg_contents'] . "</p>";
                     echo "</div>";
