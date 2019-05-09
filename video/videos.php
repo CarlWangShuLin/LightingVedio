@@ -1,7 +1,19 @@
 <!-- Lighting Video header -->
 <?php
 require('../includes/rank_list_header.php');
+
+require_once('../includes/db.php');
+
+$query = "SELECT id, name FROM file";
+$result = mysqli_query($connection, $query);
+
+$id = $_GET['id'];
+if (!$result) {
+   die("query is wrong");
+}
+
 ?>
+
 <!DOCTYPE html>
 <html>
     <body>
@@ -13,6 +25,7 @@ require('../includes/rank_list_header.php');
             <form method="POST" action="videos.php" enctype="multipart/form-data">
                 <input type="hidden" name="MAX_FILE_SIZE" >
                 <input class="btn btn-primary" type="file" name="myfile" >
+                <input type="text" name="videoname" placeholder="videoname">
                 <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
         </div>
@@ -43,177 +56,55 @@ require('../includes/rank_list_header.php');
                     	<ul>
                         	<li class="gridbutn"><a href="#" class="switch_thumb">&nbsp;</a></li>
                             <li>
-                            	<a href="#" class="previousbtn">&nbsp;</a>
+                        	    <a href="#" class="previou';s  btn">&nbsp;</a>
                                 <a href="#" class="nextbtn">&nbsp;</a>
                             </li>
-                        </ul>
+                     </ul>
                     </div>
                 </div>
                 <div class="clear"></div>
                 <!-- Video Listing -->
-                <ul class="display">
-                    <li>
-                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
-                        <div class="bigsec">
-                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
-                            <div class="clear"></div>
- 
-                            <div class="clear"></div>
-                            <p class="txt">
-                            	Details
-                            </p>
-                            <div class="clear"></div>
-                            <div class="postedby">
-                            	<p class="postbytxt">By: <a href="#">Author</a></p>
-                                <p class="views"><span class="left">Views: </span><a href="#">800</a></p>
-                            </div>
-                            <div class="right">
-                            	<p class="time">1:50</p>
-                            	<p class="date"><span>3 days ago</span></p>
-                                <div class="rating">
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="greyscal">&nbsp;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="smallsec">
-                        	<h6><a href="detail.html" class="colr">Lorem ipsum dolor sit amet</a></h6>
-                            <div class="clear"></div>
-                            <p class="time">1:50</p>
-                            <p class="date">3 days ago</p>
-                            <div class="clear"></div>
-                            <div class="rating">
-                            	<a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="greyscal">&nbsp;</a>
-                                <p class="views">800 Views</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
-                        <div class="bigsec">
-                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
-                            <div class="clear"></div>
- 
-                            <div class="clear"></div>
-                            <p class="txt">
-                            	Details
-                            </p>
-                            <div class="clear"></div>
-                            <div class="postedby">
-                            	<p class="postbytxt">By: <a href="#">Author</a></p>
-                                <p class="views"><span class="left">Views: </span><a href="#">800</a></p>
-                            </div>
-                            <div class="right">
-                            	<p class="time">1:50</p>
-                            	<p class="date"><span>3 days ago</span></p>
-                                <div class="rating">
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="greyscal">&nbsp;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="smallsec">
-                        	<h6><a href="detail.html" class="colr">Lorem ipsum dolor sit amet</a></h6>
-                            <div class="clear"></div>
-                            <p class="time">1:50</p>
-                            <p class="date">3 days ago</p>
-                            <div class="clear"></div>
-                            <div class="rating">
-                            	<a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="greyscal">&nbsp;</a>
-                                <p class="views">800 Views</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>
-                        <div class="bigsec">
-                        	<h4><a href="../video/videopage.php" class="colr">Video Title</a></h4>
-                            <div class="clear"></div>
- 
-                            <div class="clear"></div>
-                            <p class="txt">
-                            	Details
-                            </p>
-                            <div class="clear"></div>
-                            <div class="postedby">
-                            	<p class="postbytxt">By: <a href="#">Author</a></p>
-                                <p class="views"><span class="left">Views: </span><a href="#">800</a></p>
-                            </div>
-                            <div class="right">
-                            	<p class="time">1:50</p>
-                            	<p class="date"><span>3 days ago</span></p>
-                                <div class="rating">
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="colrd">&nbsp;</a>
-                                    <a href="#" class="greyscal">&nbsp;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="smallsec">
-                        	<h6><a href="detail.html" class="colr">Lorem ipsum dolor sit amet</a></h6>
-                            <div class="clear"></div>
-                            <p class="time">1:50</p>
-                            <p class="date">3 days ago</p>
-                            <div class="clear"></div>
-                            <div class="rating">
-                            	<a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="greyscal">&nbsp;</a>
-                                <p class="views">800 Views</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </li>
-                </ul>
-
-                <div class="clear"></div>
+                    <?php
+                      while ($row = mysqli_fetch_array($result)) {
+                        echo '<ul class="display">';
+                        echo '<li>';
+                    	echo '<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>';
+                        echo '<div class="bigsec">';
+                        echo '<h4><a href="../video/videopage.php?id='.$row["id"]. '" class="colr"><tr><td>' .$row["name"]. '</td></tr></a></h4>';
+                        echo '<div class="clear"></div>';   
+                        echo  '<div class="clear"></div>';
+                        echo    '<p class="txt">';
+                        echo    	'Details</p>';                 
+                        echo     '<div class="clear"></div>';
+                        echo        '<div class="postedby">';
+                        echo    	'<p class="postbytxt">By: <a href="#">Author</a></p>';
+                        echo        '<p class="views"><span class="left">Views: </span><a href="#">800</a></p>';
+                        echo    '</div>';
+                        echo    '<div class="right">';
+                        echo    	'<p class="date"><span>3 days ago</span></p>';
+                        echo    '</div>';
+                        echo '</div>';
+                        echo    '<div class="smallsec">';
+                        echo	'<h6><a href="detail.html" class="colr">Lorem ipsum dolor sit amet</a></h6>';
+                        echo    '<div class="clear"></div>';
+                        echo    '<p class="date">3 days ago</p>';
+                        echo '</div>';
+                        echo '</li>';
+                        echo '</ur>';
+                       
+                      }
+                    ?>
                 <!-- Pagination -->
                 <div class="paginations">
                 	<h5 class="pagehead">PAGE</h5>
                     <ul>
                     	<li class="leftpage"><a href="#">&nbsp;</a></li>
-                        <li class="pages"><a href="#">1</a></li>
-                        <li class="pages"><a href="#">2</a></li>
-                        <li class="pages"><a href="#">3</a></li>
-                        <li class="pages"><a href="#">4</a></li>
-                        <li class="pages"><a href="#" class="selected">5</a></li>
-                        <li class="pages"><a href="#">6</a></li>
-                        <li class="pages"><a href="#">7</a></li>
-                        <li class="pages"><a href="#">8</a></li>
-                        <li class="pages"><a href="#">9</a></li>
-                        <li class="pages"><a href="#">10</a></li>
-                        <li class="dots">...</li>
-                        <li class="pages"><a href="#">103</a></li>
-                        <li class="pages"><a href="#">104</a></li>
+                        <li class="pages"><a href="#" class="selected">1</a></li>
                         <li class="nextpage"><a href="#">&nbsp;</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- Column 2 -->    </div>
-    <div class="clear"></div>
-</div>
-<div class="clear"></div>
 <!-- Footer -->
 
 <div class="clear"></div>
