@@ -17,7 +17,5 @@ if ($page == 'default') {
     include("b_v_table.php");
 } else if ($page == 'an_co') {
     include("an_co_table.php");
-} else if ($page == 'function') {
-    include("f_table.php");
-}
+} 
 ?>
