@@ -38,8 +38,7 @@ require('../includes/db.php');
                             <ul>
                                 <li><a href="admin.php?page=blog_video">Blog video table</a></li>
                                 <li><a href="admin.php?page=an_co">Announcement</a></li>
-                                <li><a href="admin.php?page=function">Function table</a></li>
-                            </ul>
+                                 </ul>
                         </li>
                             </ul>
                         </li>
