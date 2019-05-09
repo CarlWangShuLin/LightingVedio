@@ -3,12 +3,11 @@
 ?>
 <?php
 $id = $_GET['id'];
-echo $id;
-$query = "SELECT myfile FROM file WHERE id= '$id' "; 
+$query = "SELECT vd_file FROM videos WHERE vd_id= '$id' ";
 $result = mysqli_query($connection, $query); 
 
 while($row=mysqli_fetch_array($result)){ 
-        $video = $row["myfile"];
+        $video = $row["vd_file"];
 }
-        
+
 ?>

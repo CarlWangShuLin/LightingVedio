@@ -146,7 +146,7 @@ var player = new Aliplayer({
 
 if (isset($_POST['submit'])){
 
-  $content = $_POST['content'];
+  $content = $_POST['cm_content'];
   
 $query = "INSERT INTO comments (cm_contents) VALUES ('$content')";
 $result = mysqli_query($connection, $query);

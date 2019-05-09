@@ -53,7 +53,7 @@ else{
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
 
-    $query  = "INSERT INTO file (myfile, name) ";
+    $query  = "INSERT INTO videos (vd_file, vd_name) ";
     $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname') ";
     echo $query;
     mysqli_query($connection, $query);

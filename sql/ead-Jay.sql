@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-06 10:23:58
+-- 生成日期： 2019-05-09 15:16:14
 -- 服务器版本： 10.1.38-MariaDB
 -- PHP 版本： 7.3.2
 
@@ -45,21 +45,10 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`, `ac_email`, `ac_type`) VALUES
 (1, 'jason', '123123', 21, '13938473492', 'z71x10@163.com', '1'),
 (7, 'Carl', '123', 20, '1456789642', 'carl@123.com', '1'),
-(8, 'Wang', '123', 12, '1234567', 'wang@123.com', '2'),
+(8, 'Admin', '123', 20, '15678912456', '361@11.com', '2'),
 (15, 'Fitch', '123123', 20, '14567956121', 'Fithc@123.com', '1'),
 (16, 'Jay', '123123', 20, '15968956478', 'jay@123.com', '1'),
 (17, 'Jamie', '123123', 20, '14562478962', 'jamie@123.com', '1');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ac_cm`
---
-
-CREATE TABLE `ac_cm` (
-  `ac_id` int(20) NOT NULL,
-  `cm_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -115,34 +104,17 @@ INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`, `bg
 CREATE TABLE `comments` (
   `cm_id` int(20) NOT NULL,
   `cm_name` varchar(30) NOT NULL,
-  `cm_contents` text NOT NULL
+  `cm_contents` text NOT NULL,
+  `ac_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `comments`
 --
 
-INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`) VALUES
-(1, 'Jack', 'Wow!!! This video with a incredible view.');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `file`
---
-
-CREATE TABLE `file` (
-  `id` int(20) NOT NULL,
-  `myfile` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `file`
---
-
-INSERT INTO `file` (`id`, `myfile`) VALUES
-(1, '../mp4/1080p.mp4'),
-(2, '../mp4/20190506070600856.mp4');
+INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`, `ac_id`) VALUES
+(1, 'Comment', 'This video is good, I think it should be very popular', 1),
+(2, 'Video', 'This video is nice and good', 2);
 
 -- --------------------------------------------------------
 
@@ -173,7 +145,35 @@ INSERT INTO `statistics` (`st_id`, `month`, `share`, `upload`, `playback`, `vd_i
 (7, '2019-04-04', '200', '300', '200', 7),
 (8, '2019-04-06', '420', '400', '500', 8),
 (9, '2019-05-01', '153', '453', '356', 1),
-(10, '2019-05-02', '345', '235', '234', 2);
+(10, '2019-05-02', '345', '235', '234', 2),
+(11, '2019-05-08', '123', '234', '456', 1),
+(12, '2019-05-08', '123', '234', '456', 1),
+(13, '2019-04-10', '234', '124', '345', 0),
+(14, '2019-04-11', '321', '342', '432', 0),
+(15, '2019-04-12', '432', '234', '145', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `videos`
+--
+
+CREATE TABLE `videos` (
+  `vd_id` int(20) NOT NULL,
+  `vd_name` varchar(30) NOT NULL,
+  `vd_date` date NOT NULL,
+  `vd_file` text NOT NULL,
+  `ac_id` int(20) NOT NULL,
+  `vd_popularity` varchar(99) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `videos`
+--
+
+INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_date`, `vd_file`, `ac_id`, `vd_popularity`) VALUES
+(1, 'Shanghai', '0000-00-00', '../mp4/1080p.mp4', 0, NULL),
+(2, 'F1', '0000-00-00', '../mp4/20190509151049695.mp4', 0, NULL);
 
 --
 -- 转储表的索引
@@ -204,16 +204,16 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`cm_id`);
 
 --
--- 表的索引 `file`
---
-ALTER TABLE `file`
-  ADD PRIMARY KEY (`id`);
-
---
 -- 表的索引 `statistics`
 --
 ALTER TABLE `statistics`
   ADD PRIMARY KEY (`st_id`);
+
+--
+-- 表的索引 `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`vd_id`);
 
 --
 -- 在导出的表使用AUTO_INCREMENT
@@ -223,7 +223,7 @@ ALTER TABLE `statistics`
 -- 使用表AUTO_INCREMENT `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `ac_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `ac_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用表AUTO_INCREMENT `announcements`
@@ -235,25 +235,25 @@ ALTER TABLE `announcements`
 -- 使用表AUTO_INCREMENT `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用表AUTO_INCREMENT `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- 使用表AUTO_INCREMENT `file`
---
-ALTER TABLE `file`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用表AUTO_INCREMENT `statistics`
 --
 ALTER TABLE `statistics`
-  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- 使用表AUTO_INCREMENT `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

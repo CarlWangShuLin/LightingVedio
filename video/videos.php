@@ -1,13 +1,12 @@
 <!-- Lighting Video header -->
 <?php
+require_once('../includes/db.php');
 require('../includes/rank_list_header.php');
 
-require_once('../includes/db.php');
 
-$query = "SELECT id, name FROM file";
+
+$query = "SELECT vd_id, vd_name FROM videos";
 $result = mysqli_query($connection, $query);
-
-$id = $_GET['id'];
 if (!$result) {
    die("query is wrong");
 }
@@ -70,7 +69,7 @@ if (!$result) {
                         echo '<li>';
                     	echo '<a href="../video/videopage.php" class="thumb"><img src="" alt="" /></a>';
                         echo '<div class="bigsec">';
-                        echo '<h4><a href="../video/videopage.php?id='.$row["id"]. '" class="colr"><tr><td>' .$row["name"]. '</td></tr></a></h4>';
+                        echo '<h4><a href="../video/videopage.php?id='.$row["vd_id"]. '" class="colr"><tr><td>' .$row["vd_name"]. '</td></tr></a></h4>';
                         echo '<div class="clear"></div>';   
                         echo  '<div class="clear"></div>';
                         echo    '<p class="txt">';
@@ -91,7 +90,6 @@ if (!$result) {
                         echo '</div>';
                         echo '</li>';
                         echo '</ur>';
-                       
                       }
                     ?>
                 <!-- Pagination -->
@@ -106,12 +104,10 @@ if (!$result) {
             </div>
         </div>
 <!-- Footer -->
-
 <div class="clear"></div>
 <div id="copyrights">
 	<div class="inner">
     	<p>Copyright © 2019 Group 2. All rights reserved.</p>
-        
     </div>
 </div>
 
