@@ -238,6 +238,7 @@ require_once('../includes/adminhead.php');
            <th>Comments ID</th>
             <th>Name</th>
             <th>Content</th>
+            <th>Account ID</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -249,6 +250,7 @@ require_once('../includes/adminhead.php');
             echo "<td>" . $row["cm_id"] . "</td>";
             echo "<td>" . $row["cm_name"] . "</td>";
             echo "<td>" . $row["cm_contents"] . "</td>";
+            echo "<td>" . $row["ac_id"] . "</td>";
             echo "<td><button data-toggle='modal' data-target='#updatecm'>update</buttone></td>";
             echo "<td><a class='text' href='deletecm.php?cm_id=" . $row["cm_id"] . "'>delete</a></td>";                  
             echo "</tr>";
@@ -281,17 +283,21 @@ require_once('../includes/adminhead.php');
                                     <form class="form-horizontal" role="form">
                                     
                                     <div class="form-group has-success" >
-        <label class="control-label" for="inputSuccess"> Comment id </label>
-        <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
-        </div>
-<div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Comment name </label>
-        <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
-        </div>
-<div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Comment contents </label>
-        <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
-        </div>
+                                    <label class="control-label" for="inputSuccess"> Comment id </label>
+                                    <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Comment name </label>
+                                    <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Comment contents </label>
+                                    <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Account ID </label>
+                                    <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'id' ?>" required>
+                                    </div>
 
                                     </form>
                                 </div>
@@ -324,18 +330,23 @@ require_once('../includes/adminhead.php');
                                         <div class="modal-body">
                                             <!--  模态框内容，我在此处添加一个表单 -->
                                             <form class="form-horizontal" role="form">
+                                            
                                            <div class="form-group has-success" >
-        <label class="control-label" for="inputSuccess"> Comment id </label>
-        <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
-        </div>
-<div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Comment name </label>
-        <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
-        </div>
-<div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Comment contents </label>
-        <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
-        </div>
+                                            <label class="control-label" for="inputSuccess"> Comment id </label>
+                                            <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
+                                            </div>
+                                            <div class="form-group has-success">
+                                            <label class="control-label" for="inputSuccess"> Comment name </label>
+                                            <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
+                                            </div>
+                                            <div class="form-group has-success">
+                                            <label class="control-label" for="inputSuccess"> Comment contents </label>
+                                            <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
+                                            </div>
+                                            <div class="form-group has-success">
+                                            <label class="control-label" for="inputSuccess"> Account ID </label>
+                                            <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'id' ?>" required>
+                                            </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
