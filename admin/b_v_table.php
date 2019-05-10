@@ -221,8 +221,9 @@ require_once('../includes/adminhead.php');
          <tr>
            <th>Video ID</th>
             <th>Video name</th>
+            <th>Video Date</th>
             <th>Video file</th>
-            <th>Video classification</th>
+            <th>Account ID</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -233,8 +234,9 @@ require_once('../includes/adminhead.php');
             echo "<tr>";
             echo "<td>" . $row["vd_id"] . "</td>";
             echo "<td>" . $row["vd_name"] . "</td>";
+            echo "<td>" . $row["vd_date"] . "</td>";
             echo "<td>" . $row["vd_file"] . "</td>";
-            echo "<td>" . $row["vd_classification"] . "</td>";
+            echo "<td>" . $row["ac_id"] . "</td>";
             echo "<td><button data-toggle='modal' data-target='#updatevd'>update</buttone></td>";
             echo "<td><a class='text' href='deletevd.php?vd_id=" . $row["vd_id"] . "'>delete</a></td>";                                       
             echo "</tr>";
@@ -267,21 +269,26 @@ require_once('../includes/adminhead.php');
                                     <form class="form-horizontal" role="form">
                                     
                                     <div class="form-group has-success" >
-        <label class="control-label" for="inputSuccess"> Video id </label>
-        <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video name </label>
-        <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video file </label>
-        <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video classification </label>
-        <input type="text" class="form-control" name="vd_classification" placeholder="<?php echo 'classification' ?>" required>
-        </div>
+                                    <label class="control-label" for="inputSuccess"> Video id </label>
+                                    <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video name </label>
+                                    <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video date </label>
+                                    <input type="date" class="form-control" name="vd_date" placeholder="<?php echo 'date' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video file </label>
+                                    <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Account id </label>
+                                    <input type="text" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
+                                    </div>
+
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -316,21 +323,25 @@ require_once('../includes/adminhead.php');
                                     <form class="form-horizontal" role="form">
                                     
                                     <div class="form-group has-success" >
-        <label class="control-label" for="inputSuccess"> Video id </label>
-        <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video name </label>
-        <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video file </label>
-        <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
-        </div>
-        <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess"> Video classification </label>
-        <input type="text" class="form-control" name="vd_classification" placeholder="<?php echo 'classification' ?>" required>
-        </div>
+                                    <label class="control-label" for="inputSuccess"> Video id </label>
+                                    <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video name </label>
+                                    <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video date </label>
+                                    <input type="date" class="form-control" name="vd_date" placeholder="<?php echo 'date' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Video file </label>
+                                    <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
+                                    </div>
+                                    <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"> Account id </label>
+                                    <input type="text" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
+                                    </div>
 
                                     </form>
                                 </div>
