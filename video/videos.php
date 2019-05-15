@@ -5,7 +5,7 @@ require('../includes/rank_list_header.php');
 
 
 
-$query = "SELECT vd_id, vd_name FROM videos";
+$query = "SELECT vd_id, vd_name, vd_date FROM videos";
 $result = mysqli_query($connection, $query);
 if (!$result) {
    die("query is wrong");
@@ -23,34 +23,28 @@ if (!$result) {
             <h2>Upload Video:</h2>
             <form method="POST" action="videos.php" enctype="multipart/form-data">
                 <input type="hidden" name="MAX_FILE_SIZE" >
-                <input class="btn btn-primary" type="file" name="myfile" >
-                <input type="text" name="videoname" placeholder="videoname">
+                <input class="btn btn-primary" type="file" name="myfile">
+                <div class="input-group">
+                <input class="form-control" type="text" name="videoname" placeholder="Videoname">
+                </div>
                 <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
     	<!-- Column 1 -->
         <div class="col1">
             <div class="clear"></div>
             <!-- White Section small -->
-            <div class="whitesec_search">
-                <div class="smallsearch">
-                	<input type="text" value="Enter keyword to search" id="searchBox3" name="s" onblur="if(this.value == '') { this.value = 'Enter keyword to search'; }" onfocus="if(this.value == 'Enter keyword to search') { this.value = ''; }" class="bar" />
-            		<a href="#" class="buttonone"><span>Search</span></a>
-                </div>
-            </div>
             <div class="clear"></div>
             <!-- Recent Videos -->
             <div class="recent_videos">
             	<div class="recent_head">
-                	<ul class="videocat">
-                    	<li>Sort By: </li>
-                        <li><a href="#">Recently Added</a></li>
-                        <li><a href="#">Most Viewed</a></li>
-                        <li><a href="#">Top Rated</a></li>
-                        <li class="last"><a href="#">Production Date</a></li>
-                    </ul>
                     <div class="recent_buttons">
                     	<ul>
                         	<li class="gridbutn"><a href="#" class="switch_thumb">&nbsp;</a></li>
@@ -80,13 +74,13 @@ if (!$result) {
                         echo        '<p class="views"><span class="left">Views: </span><a href="#">800</a></p>';
                         echo    '</div>';
                         echo    '<div class="right">';
-                        echo    	'<p class="date"><span>3 days ago</span></p>';
+                        echo    	'<p class="date"><span>' .$row["vd_date"]. '</span></p>';
                         echo    '</div>';
                         echo '</div>';
                         echo    '<div class="smallsec">';
                         echo	'<h6><a href="detail.html" class="colr">Lorem ipsum dolor sit amet</a></h6>';
                         echo    '<div class="clear"></div>';
-                        echo    '<p class="date">3 days ago</p>';
+                        echo    '<p class="date">' .$row["vd_date"]. '</p>';
                         echo '</div>';
                         echo '</li>';
                         echo '</ur>';
