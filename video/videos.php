@@ -72,7 +72,7 @@ if (!$result) {
                         echo    	'Details</p>';                 
                         echo     '<div class="clear"></div>';
                         echo        '<div class="postedby">';
-                        echo    	'<p class="postbytxt">By:' '</p>';
+                        echo    	'<p class="postbytxt">By:Carl </p>';
                         echo        '<p class="views"><span class="left">Views:' . $row["vd_popularity"]. '</span></p>';
                         echo    '</div>';
                         echo    '<div class="right">';

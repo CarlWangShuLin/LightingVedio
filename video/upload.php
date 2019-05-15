@@ -63,7 +63,8 @@ if (isset($_POST['submit'])) {
 
         $query  = "INSERT INTO videos (vd_file, vd_name, vd_date) ";
         $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_date')";
-
+        
+        header('Location: videos.php');
         mysqli_query($connection, $query);
 }
 ?>
