@@ -5,6 +5,17 @@ require('../includes/db.php');
 require('select.php');
 require('comment.php');
 ?>
+<!-- Popularity -->
+<?php
+$vd_id = $_GET[id];
+$queryb  = "UPDATE videos ";
+$queryb .= "SET vd_popularity=vd_popularity+1 ";
+$queryb .= "WHERE vd_id = $vd_id";
+mysqli_query($connection, $queryb);
+if (!$result) {
+    die("query is wrong");
+ }
+?>
 <!DOCTYPE html>
 <html>
 <head>

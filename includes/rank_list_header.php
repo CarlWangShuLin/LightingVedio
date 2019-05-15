@@ -91,11 +91,7 @@ require('db.php');
                         <li><a href="../video/videos.php" class="staticlinks">Videos</a></li>
                         <li><a href="../blog/blogs.php">Blogs</a>
                         </li>
-                        <li><a href="#" class="staticlinks">Rank lists</a>
-                            <ul>
-                                <li><a href="../rank_list/ranklist_videos.php">videos</a></li>
-                                <li><a href="../rank_list/ranklist_blogs.php">blogs</a></li>
-                            </ul>
+                        <li><a href="../rank_list/ranklist.php" class="staticlinks">Rank lists</a>
                         </li>
                     </ul>
                     <div class="clear"></div>

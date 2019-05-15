@@ -2,9 +2,10 @@
 <?php
 require_once('../includes/db.php');
 require('../includes/rank_list_header.php');
+?>
 
-
-
+<!-- Video -->
+<?php
 $query = "SELECT vd_id, vd_name, vd_date FROM videos";
 $result = mysqli_query($connection, $query);
 if (!$result) {

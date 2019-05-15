@@ -10,7 +10,8 @@
 
  <?php
 $query  = 'SELECT * ';
-$query .= 'FROM videos';
+$query .= 'FROM videos ';
+$query .= 'ORDER BY vd_popularity DESC';
 $result = mysqli_query($connection, $query);
 if (!$result) {
     die('query is wrong');
@@ -21,31 +22,30 @@ if (!$result) {
                     <tr>
                       <th>Video ID</th>
                       <th>Name</th>
-                      <th>Classification</th>
-                      <th>Collection</th>
-                      <th>payback volume</th>
+                      <th>Datetime</th>
+                      <th>Post by</th>
+                      <th>Popularity</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                    <th>Video ID</th>
+                      <th>Video ID</th>
                       <th>Name</th>
-                      <th>Classification</th>
-                      <th>Collection</th>
-                      <th>payback volume</th>
+                      <th>Datetime</th>
+                      <th>Post by</th>
+                      <th>Popularity</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
 <?php
-
 while ($row = mysqli_fetch_array($result)) {
     echo"<tr>";
     echo"<td>" . $row["vd_id"] . "</td>";
     echo"<td>" . $row["vd_name"] . "</td>";
-    echo"<td>" . $row["vd_classification"] . "</td>";
-    echo"<td>" . $row[""] . "</td>";
-    echo"<td>" . $row[""] . "</td>";
+    echo"<td>" . $row["vd_date"] . "</td>";
+    echo"<td>" . $row["ac_id"] . "</td>";
+    echo"<td>" . $row["vd_popularity"] . "</td>";
     echo"</tr>";
 }
 ?>
