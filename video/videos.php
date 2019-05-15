@@ -6,7 +6,7 @@ require('../includes/rank_list_header.php');
 
 <!-- Video -->
 <?php
-$query = "SELECT vd_id, vd_name, vd_date FROM videos";
+$query = "SELECT * FROM videos";
 $result = mysqli_query($connection, $query);
 if (!$result) {
    die("query is wrong");
@@ -59,6 +59,7 @@ if (!$result) {
                 <div class="clear"></div>
                 <!-- Video Listing -->
                     <?php
+
                       while ($row = mysqli_fetch_array($result)) {
                         echo '<ul class="display">';
                         echo '<li>';
@@ -71,8 +72,8 @@ if (!$result) {
                         echo    	'Details</p>';                 
                         echo     '<div class="clear"></div>';
                         echo        '<div class="postedby">';
-                        echo    	'<p class="postbytxt">By: <a href="#">Author</a></p>';
-                        echo        '<p class="views"><span class="left">Views: </span><a href="#">800</a></p>';
+                        echo    	'<p class="postbytxt">By:' '</p>';
+                        echo        '<p class="views"><span class="left">Views:' . $row["vd_popularity"]. '</span></p>';
                         echo    '</div>';
                         echo    '<div class="right">';
                         echo    	'<p class="date"><span>' .$row["vd_date"]. '</span></p>';
@@ -88,15 +89,51 @@ if (!$result) {
                       }
                     ?>
                 <!-- Pagination -->
-                <div class="paginations">
-                	<h5 class="pagehead">PAGE</h5>
-                    <ul>
-                    	<li class="leftpage"><a href="#">&nbsp;</a></li>
-                        <li class="pages"><a href="#" class="selected">1</a></li>
-                        <li class="nextpage"><a href="#">&nbsp;</a></li>
-                    </ul>
-                </div>
+                <div class="page-icon" style="position:absolute;left:50%;bottom:0;transform: translate(-50%, -50%);">
+
+        <ul>
+            <?php
+             $num_rec_per_page = 6;   // 每页显示数量
+             if (isset($_GET["page"])) {
+                 $page  = $_GET["page"];
+             } else {
+                 $page = 1;
+             };
+             $start_from = ($page - 1) * $num_rec_per_page;
+             $query = "SELECT * ";
+             $query .= "FROM videos order by vd_id desc LIMIT $start_from, $num_rec_per_page ";
+             $result = mysqli_query($connection, $query);
+             //echo $query;
+             if (!$result) {
+                 die("query is wrong");
+             }
+
+            $query2 = "SELECT * FROM videos";
+            $rs_result = mysqli_query($connection, $query2); //查询数据
+            $total_records = mysqli_num_rows($rs_result);  // 统计总共的记录条数
+            $total_pages = ceil($total_records / $num_rec_per_page);  // 计算总页数
+
+            echo "<a class='page-disabled' href='videos.php?page=1'>" . "<i></i>First Page</a>";
+            //echo "<li>" . "<a href='blogs.php?page=1'>" . '|<' . "</a>" . "</li>"; // 第一页
+            for ($i = 1; $i <= $total_pages; $i++) {
+                if ($i == $page) {
+                    echo "<span class='page-current'>$i</span>";
+                    //echo "<li>$i</li>";  
+
+                } else {
+                    echo "<a href='videos.php?page=" . $i . "'>" . $i . "</a>";
+                }
+            };
+            echo "<a class='page-next' href='videos.php?page=$total_pages'>" . "Last Page<i></i></a>";
+            //echo "<li>" . "<a href='blogs.php?page=$total_pages'>" . '>|' . "</a>" . "</li>"; // 最后一页
+            ?>
+
+
+
+        </ul>
+    </div>
             </div>
+        </div>
         </div>
 <!-- Footer -->
 <div class="clear"></div>
@@ -111,4 +148,7 @@ if (!$result) {
 
 <?php
 require('../video/upload.php');
+
+// 5. close db connec tio
+mysqli_close($connection);
 ?>

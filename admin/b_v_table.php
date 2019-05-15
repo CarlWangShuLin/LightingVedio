@@ -195,9 +195,17 @@ require_once('../includes/adminhead.php');
                 <div class="panel panel-default">
                     <!-- /.panel-heading -->
                     <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Video information sheet</h6>
-    <!-- button start -->
-    <button data-toggle="modal" data-target="#addvd">Add Video</button>       
+                    <h6 class="m-0 font-weight-bold text-primary">Video information sheet</h6>
+                    <!-- button start -->
+                    <form method="POST" action="addvd.php" enctype="multipart/form-data">
+                <input type="hidden" name="MAX_FILE_SIZE" >
+                <input class="btn btn-primary" type="file" name="myfile">
+                <div class="input-group">
+                <input class="form-control" type="text" name="videoname" placeholder="Videoname">
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
+            </form>
+
     <!-- button end-->
   </div>
                     <div class="panel-body">            
@@ -224,7 +232,6 @@ require_once('../includes/adminhead.php');
             <th>Video Date</th>
             <th>Video file</th>
             <th>Account ID</th>
-            <th>Update</th>
             <th>Delete</th>
           </tr>
     </thead>
@@ -237,7 +244,6 @@ require_once('../includes/adminhead.php');
             echo "<td>" . $row["vd_date"] . "</td>";
             echo "<td>" . $row["vd_file"] . "</td>";
             echo "<td>" . $row["ac_id"] . "</td>";
-            echo "<td><button data-toggle='modal' data-target='#updatevd'>update</buttone></td>";
             echo "<td><a class='text' href='deletevd.php?vd_id=" . $row["vd_id"] . "'>delete</a></td>";                                       
             echo "</tr>";
         }
@@ -248,114 +254,6 @@ require_once('../includes/adminhead.php');
   </div>
 </div>
 <!-- DataTales end -->
-<!-- add pop-up start -->
-<div class="container">
-                <form method="post" action="addvd.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
-                    <div class="modal fade" id="addvd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
-                        <div class="modal-dialog">
-                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
-                            <div class="modal-content">
-                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
-
-                                <div class="btn-info modal-header">
-                                    <h4>Write Video</h4>
-                                    <!--  模态框标题模  -->
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <!--  关闭按钮  -->
-                                </div>
-                                <div class="modal-body">
-                                    <!--  模态框内容，我在此处添加一个表单 -->
-                                    <form class="form-horizontal" role="form">
-                                    
-                                    <div class="form-group has-success" >
-                                    <label class="control-label" for="inputSuccess"> Video id </label>
-                                    <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video name </label>
-                                    <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video date </label>
-                                    <input type="date" class="form-control" name="vd_date" placeholder="<?php echo 'date' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video file </label>
-                                    <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Account id </label>
-                                    <input type="text" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
-                                    </div>
-
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
-                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div>
-                    </div> <!-- /.modal -->
-                </form>              
-      </div>
-<!-- add pop-up end -->
-<!-- update pop-up start -->
-<div class="container">
-                <form method="post" action="updatevd.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
-                    <div class="modal fade" id="updatevd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
-                        <div class="modal-dialog">
-                            <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
-                            <div class="modal-content">
-                                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
-
-                                <div class="btn-info modal-header">
-                                    <h4>Update Video</h4>
-                                    <!--  模态框标题模  -->
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <!--  关闭按钮  -->
-                                </div>
-                                <div class="modal-body">
-                                    <!--  模态框内容，我在此处添加一个表单 -->
-                                    <form class="form-horizontal" role="form">
-                                    
-                                    <div class="form-group has-success" >
-                                    <label class="control-label" for="inputSuccess"> Video id </label>
-                                    <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'number' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video name </label>
-                                    <input type="text" class="form-control" name="vd_name" placeholder="<?php echo 'name' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video date </label>
-                                    <input type="date" class="form-control" name="vd_date" placeholder="<?php echo 'date' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Video file </label>
-                                    <input type="text" class="form-control" name="vd_file" placeholder="<?php echo 'file' ?>" required>
-                                    </div>
-                                    <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"> Account id </label>
-                                    <input type="text" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
-                                    </div>
-
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
-                                    <button type="submit" name="submit" class="btn btn-info">Submit</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div>
-                    </div> <!-- /.modal -->
-                </form>              
-      </div>
-<!-- update pop-up end --> 
 </div>
 <!-- conten end -->
 

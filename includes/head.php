@@ -1,6 +1,8 @@
 <!DOCTYPE html >
 <html>
-
+<?php
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--// Stylesheets //-->
