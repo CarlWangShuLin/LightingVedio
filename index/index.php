@@ -23,31 +23,26 @@ if (!$result) {
             <div class="recent_head">
                 <h3>Announcement</h3>
             </div>
-            <ul class="display">
+            <?php
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<ul class='display'>
                 <li>
-                    <div class="bigsec">
-                        <h4><p class="colr">title</p></h4>
-                        <p class="txt">
-                            Lorem ipsum
-                        </p>
-                        <div class="clear"></div>
-                        <div class="postedby">
-                            <p class="postbytxt">By: <a href="#">RayWilliams</a></p>
-                        </div>
-                        <div class="right">
-                            <p class="time">1:50</p>
-                            <p class="date"><span>3 days ago</span></p>
-                            <div class="rating">
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="colrd">&nbsp;</a>
-                                <a href="#" class="greyscal">&nbsp;</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                    <div class='bigsec'>
+                        <h4>
+                            <p class='colr'>" . $row["an_name"] . "</p>";
+                echo "</h4>
+                <p class='txt'>" . $row["an_contents"] . "</p>
+                <div class='clear'></div> <div class='postedby'>
+                <p class='postbytxt'>By: <a href='#'>Lighting Video</a></p>
+            </div>
+            <div class='right'>
+                <p class='time'>" . $row["an_time"] . "</p>
+            </div>
+        </div>
+        </li>
+        </ul> ";
+            }
+            ?>
         </div>
     </div>
     <!-- Column 2 -->
