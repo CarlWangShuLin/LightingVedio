@@ -7,7 +7,7 @@ require('comment.php');
 ?>
 <!-- Popularity -->
 <?php
-$vd_id = $_GET[id];
+$vd_id = $_GET['id'];
 $queryb  = "UPDATE videos ";
 $queryb .= "SET vd_popularity=vd_popularity+1 ";
 $queryb .= "WHERE vd_id = $vd_id";
