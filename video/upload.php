@@ -57,6 +57,8 @@ if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
         }
 } else {
         die("文件{$_FILES['myfile']['name']}不是一个HTTP POST上传的合法文件");
+        
+}
 }
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
@@ -67,4 +69,7 @@ if (isset($_POST['submit'])) {
         header('Location: videos.php');
         mysqli_query($connection, $query);
 }
+
+// 5. close db connec tio
+mysqli_close($connection);
 ?>

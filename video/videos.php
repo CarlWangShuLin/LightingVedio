@@ -17,6 +17,7 @@ if (!$result) {
 <!DOCTYPE html>
 <html>
     <body>
+
     <!-- Content Section -->
     <div id="content_sec">
     	<!-- Bread Crumb -->
@@ -26,7 +27,7 @@ if (!$result) {
                 <input type="hidden" name="MAX_FILE_SIZE" >
                 <input class="btn btn-primary" type="file" name="myfile">
                 <div class="input-group">
-                <input class="form-control" type="text" name="videoname" placeholder="Videoname">
+                <input class="form-control" type="text" name="videoname" placeholder="Videoname" required>
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
@@ -45,17 +46,7 @@ if (!$result) {
             <div class="clear"></div>
             <!-- Recent Videos -->
             <div class="recent_videos">
-            	<div class="recent_head">
-                    <div class="recent_buttons">
-                    	<ul>
-                        	<li class="gridbutn"><a href="#" class="switch_thumb">&nbsp;</a></li>
-                            <li>
-                        	    <a href="#" class="previou';s  btn">&nbsp;</a>
-                                <a href="#" class="nextbtn">&nbsp;</a>
-                            </li>
-                     </ul>
-                    </div>
-                </div>
+
                 <div class="clear"></div>
                 <!-- Video Listing -->
                     <?php
@@ -135,6 +126,7 @@ if (!$result) {
             </div>
         </div>
         </div>
+        
 <!-- Footer -->
 <div class="clear"></div>
 <div id="copyrights">
