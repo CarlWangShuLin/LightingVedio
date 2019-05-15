@@ -6,7 +6,7 @@ $save_path = "../mp4/";                               //文件保存路径
 $max_size = 100000000000000000000000000000000000000000;  //上传文件最大值
 $allow_type = array('mp4');          //允许上传的类型
 $videoname = $_POST['videoname'];
-
+$vd_date = date("Y-m-d");
 
 //判断保存的目录是否存在，如果不存在则创建保存目录
 if(!is_dir($save_path))
@@ -53,9 +53,8 @@ else{
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
 
-    $query  = "INSERT INTO videos (vd_file, vd_name) ";
-    $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname') ";
-    echo $query;
+    $query  = "INSERT INTO videos (vd_file, vd_name, vd_date) ";
+    $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_date')";
     mysqli_query($connection, $query);
 }
 ?>
