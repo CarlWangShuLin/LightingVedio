@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-09 15:16:14
+-- 生成日期： 2019-05-15 08:32:32
 -- 服务器版本： 10.1.38-MariaDB
 -- PHP 版本： 7.3.2
 
@@ -164,7 +164,7 @@ CREATE TABLE `videos` (
   `vd_date` date NOT NULL,
   `vd_file` text NOT NULL,
   `ac_id` int(20) NOT NULL,
-  `vd_popularity` varchar(99) DEFAULT NULL
+  `vd_popularity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -172,8 +172,9 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_date`, `vd_file`, `ac_id`, `vd_popularity`) VALUES
-(1, 'Shanghai', '0000-00-00', '../mp4/1080p.mp4', 0, NULL),
-(2, 'F1', '0000-00-00', '../mp4/20190509151049695.mp4', 0, NULL);
+(1, 'Shanghai', '2019-05-01', '../mp4/1080p.mp4', 0, 0),
+(2, 'F1', '2019-05-02', '../mp4/20190509151049695.mp4', 0, 0),
+(3, 'Kobe Bryant', '2019-05-15', '../mp4/20190515032359403.mp4', 0, 0);
 
 --
 -- 转储表的索引
@@ -241,7 +242,7 @@ ALTER TABLE `blogs`
 -- 使用表AUTO_INCREMENT `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用表AUTO_INCREMENT `statistics`
@@ -253,7 +254,7 @@ ALTER TABLE `statistics`
 -- 使用表AUTO_INCREMENT `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
