@@ -41,7 +41,7 @@ $save_file_name = date('YmdHis').rand(100,900).'.'.$hz;
 //判断是否为HTTP POST上传的，如果是则把文件从临时目录移动到保存目录，并输出保存的信息；
 if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
         if(move_uploaded_file($_FILES['myfile']['tmp_name'],$save_path.'/'.$save_file_name)){
-                echo "上传成功!<br>文件{$_FILES['myfile']['name']}保存在{$save_path}/{$save_file_name}!<br>";
+               // echo "上传成功!<br>文件{$_FILES['myfile']['name']}保存在{$save_path}/{$save_file_name}!<br>";
         }
         else{
                 echo "文件移动失败!<br>";
@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
 
     $query  = "INSERT INTO videos (vd_file, vd_name, vd_date) ";
     $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_date')";
+
     mysqli_query($connection, $query);
 }
 ?>
