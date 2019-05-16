@@ -28,16 +28,6 @@
                <th>Email</th>
              </tr>
            </thead>
-           <tfoot>
-             <tr>
-               <th>My ID</th>
-               <th>Name</th>
-               <th>Password</th>
-               <th>Age</th>
-               <th>Phone Number</th>
-               <th>Email</th>
-             </tr>
-           </tfoot>
            <tbody>
 
              <?php
