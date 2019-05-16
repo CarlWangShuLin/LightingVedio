@@ -231,9 +231,9 @@ require_once('../includes/adminhead.php');
                                     <tr>
                                         <th>Video ID</th>
                                         <th>Video name</th>
+                                        <th>Video Description</th>
                                         <th>Video Date</th>
                                         <th>Video file</th>
-                                        <th>Account ID</th>
                                         <th>Popularity</th>
                                         <th>Delete</th>
                                     </tr>
@@ -244,9 +244,9 @@ require_once('../includes/adminhead.php');
                                         echo "<tr>";
                                         echo "<td>" . $row["vd_id"] . "</td>";
                                         echo "<td>" . $row["vd_name"] . "</td>";
+                                        echo "<td>" . $row["vd_content"] . "</td>";
                                         echo "<td>" . $row["vd_date"] . "</td>";
                                         echo "<td>" . $row["vd_file"] . "</td>";
-                                        echo "<td>" . $row["ac_id"] . "</td>";
                                         echo "<td>" . $row["vd_popularity"] . "</td>";
                                         echo "<td><a class='text' href='deletevd.php?vd_id=" . $row["vd_id"] . "'>delete</a></td>";
                                         echo "</tr>";

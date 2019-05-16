@@ -7,9 +7,10 @@ if (isset($_POST[submit])) {
     $cm_id = $_POST['cm_id'];
     $cm_name = $_POST['cm_name'];
     $cm_contents = $_POST['cm_contents'];
+    $vd_id = $_POST['vd_id'];
     
 // 2. Do a query (Select all medicinal)
-$query = "UPDATE comments SET cm_id='$cm_id', cm_name='$cm_name', cm_contents='$cm_contents' ";
+$query = "UPDATE comments SET cm_id='$cm_id', cm_name='$cm_name', cm_contents='$cm_contents', vd_id='$vd_id' ";
 $query .= "WHERE cm_id= '$cm_id'";
 
 //echo $query;

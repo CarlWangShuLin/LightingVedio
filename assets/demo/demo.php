@@ -3,37 +3,6 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
 require_once('../includes/db.php');
 // SQL query ....
 //group by, sum()
-
-$query = "SELECT videos.vd_name, statistics.month, ";
-$query .= "SUM(share) AS share, ";
-$query .= "SUM(upload) AS upload, ";
-$query .= "SUM(playback) AS playback ";
-$query .= "FROM statistics ";
-$query .= "LEFT JOIN videos ";
-$query .= "ON videos.vd_id = statistics.vd_id ";
-$query .= "GROUP BY month";
-
-// echo $query;
-
-$result = mysqli_query($connection, $query);
-
-if (!$result) {
-    die("query is wrong");
-}
-
-while ($row = mysqli_fetch_array($result)) {
-
-        $month .= '"' . $row['month'] . '",';
-        $share .= $row['share'] . ',';
-        $upload .= $row['upload'] . ',';
-        $playback .= $row['playback'] . ',';
-
-}
-
-$month = substr($month, 0, -1);
-$share = substr($share, 0, -1);
-$upload = substr($upload, 0, -1);
-$playback = substr($playback, 0, -1);
 ?>
 
 <script type="text/javascript">
@@ -160,11 +129,33 @@ demo = {
       gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
       gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
+<?php
+$query1 = "SELECT vd_name, vd_popularity ";
+$query1 .= "FROM videos ";
+$query1 .= "GROUP BY vd_popularity";
+
+// echo $query1;
+
+$result1 = mysqli_query($connection, $query1);
+
+if (!$result1) {
+    die("query1 is wrong");
+}
+
+while ($row1 = mysqli_fetch_array($result1)) {
+
+        $video .= '"' . $row1['vd_name'] . '",';
+        $playback .= $row1['vd_popularity'] . ',';
+
+}
+$video = substr($video, 0, -1);
+$playback = substr($playback, 0, -1);
+?>
       myChart = new Chart(ctx, {
           type: 'line',
           responsive: true,
           data: {
-              labels: [<?php echo $month; ?>],
+              labels: [<?php echo $video; ?>],
               datasets: [{
                   label: "Population statistics",
                   borderColor: "#f96332",
@@ -194,11 +185,34 @@ demo = {
       gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
       gradientFill.addColorStop(1, hexToRGB('#18ce0f',0.4));
 
+      <?php
+//playback query
+$query3 = "SELECT vd_date, SUM(vd_popularity) as popularity ";
+$query3 .= "FROM videos ";
+$query3 .= "GROUP BY vd_date";
+
+//echo $query3;
+
+$result3 = mysqli_query($connection, $query3);
+
+if (!$result3) {
+    die("query3 is wrong");
+}
+
+while ($row3 = mysqli_fetch_array($result3)) {
+
+        $tmonth .= '"' . $row3['vd_date'] . '",';
+        $tplayback .= $row3['popularity'] . ',';
+
+}
+$tmonth = substr($tmonth, 0, -1);
+$tplayback = substr($tplayback, 0, -1);
+?>
       myChart = new Chart(ctx, {
           type: 'line',
           responsive: true,
           data: {
-              labels: [<?php echo $month; ?>],
+              labels: [<?php echo $tmonth; ?>],
               datasets: [{
                   label: "Population statistics",
                   borderColor: "#18ce0f",
@@ -211,7 +225,7 @@ demo = {
                   fill: true,
                   backgroundColor: gradientFill,
                   borderWidth: 2,
-                  data: [<?php echo $upload; ?>]
+                  data: [<?php echo $tplayback; ?>]
               }]
           },
           options: gradientChartOptionsConfigurationWithNumbersAndGrid
@@ -223,6 +237,30 @@ demo = {
       gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
       gradientFill.addColorStop(1, hexToRGB('#2CA8FF', 0.6));
 
+
+<?php
+//upload query
+$query2 = "SELECT count(vd_id) as total, vd_date ";
+$query2 .= "FROM videos ";
+$query2 .= "GROUP BY vd_date";
+
+// echo $query2;
+
+$result2 = mysqli_query($connection, $query2);
+
+if (!$result2) {
+    die("query2 is wrong");
+}
+
+while ($row2 = mysqli_fetch_array($result2)) {
+
+        $month .= '"' . $row2['vd_date'] . '",';
+        $upload .= $row2['total'] . ',';
+
+}
+$month = substr($month, 0, -1);
+$upload = substr($upload, 0, -1);
+?>
       var a =  {
         type : "bar",
         data : {
@@ -239,7 +277,7 @@ demo = {
             pointRadius: 4,
             fill: true,
             borderWidth: 1,
-            data: [<?php echo $share; ?>]
+            data: [<?php echo $upload; ?>]
           }]
         },
         options: {
