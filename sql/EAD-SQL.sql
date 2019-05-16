@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-15 08:32:32
+-- 生成日期： 2019-05-16 15:36:48
 -- 服务器版本： 10.1.38-MariaDB
 -- PHP 版本： 7.3.2
 
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`, `ac_email`, `ac_type`) VALUES
-(1, 'jason', '123123', 21, '13938473492', 'z71x10@163.com', '1'),
+(1, 'Jason', '123123', 21, '13938473492', 'z71x10@163.com', '1'),
 (7, 'Carl', '123', 20, '1456789642', 'carl@123.com', '1'),
 (8, 'Admin', '123', 20, '15678912456', '361@11.com', '2'),
 (15, 'Fitch', '123123', 20, '14567956121', 'Fithc@123.com', '1'),
@@ -83,17 +83,21 @@ CREATE TABLE `blogs` (
   `bg_title` text CHARACTER SET utf8 COLLATE utf8_bin,
   `bg_date` date DEFAULT NULL,
   `bg_contents` text,
-  `ac_id` int(20) DEFAULT NULL,
-  `bg_popularity` varchar(99) DEFAULT NULL
+  `ac_id` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `blogs`
 --
 
-INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`, `bg_popularity`) VALUES
-(7, ' Jay', '2019-04-30', 'this is a test', 7, NULL),
-(8, 'Class', '2019-05-10', 'This is EAD class', 7, NULL);
+INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`) VALUES
+(7, ' Jay', '2019-04-30', 'this is a test', 7),
+(8, 'Class', '2019-05-10', 'This is EAD class', 7),
+(9, 'Test', '2019-05-16', 'This is a bug of blog', 1),
+(10, 'Bug', '2019-05-16', 'Other user can not change blog', 1),
+(11, 'Test', '2019-05-16', 'Testing other user can change Blog', 16),
+(12, 'Testing', '2019-05-16', 'Testing page function', 8),
+(13, 'Class', '2019-05-16', 'Fitch is a dog', 8);
 
 -- --------------------------------------------------------
 
@@ -105,16 +109,8 @@ CREATE TABLE `comments` (
   `cm_id` int(20) NOT NULL,
   `cm_name` varchar(30) NOT NULL,
   `cm_contents` text NOT NULL,
-  `ac_id` int(20) NOT NULL
+  `vd_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `comments`
---
-
-INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`, `ac_id`) VALUES
-(1, 'Comment', 'This video is good, I think it should be very popular', 1),
-(2, 'Video', 'This video is nice and good', 2);
 
 -- --------------------------------------------------------
 
@@ -161,20 +157,18 @@ INSERT INTO `statistics` (`st_id`, `month`, `share`, `upload`, `playback`, `vd_i
 CREATE TABLE `videos` (
   `vd_id` int(20) NOT NULL,
   `vd_name` varchar(30) NOT NULL,
+  `vd_content` text NOT NULL,
   `vd_date` date NOT NULL,
   `vd_file` text NOT NULL,
-  `ac_id` int(20) NOT NULL,
-  `vd_popularity` int(11) NOT NULL
+  `vd_popularity` int(99) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `videos`
 --
 
-INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_date`, `vd_file`, `ac_id`, `vd_popularity`) VALUES
-(1, 'Shanghai', '2019-05-01', '../mp4/1080p.mp4', 0, 0),
-(2, 'F1', '2019-05-02', '../mp4/20190509151049695.mp4', 0, 0),
-(3, 'Kobe Bryant', '2019-05-15', '../mp4/20190515032359403.mp4', 0, 0);
+INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`, `vd_popularity`) VALUES
+(19, 'Shanghai', 'This is Shanghai', '2019-05-16', '../mp4/20190516153315749.mp4', 0);
 
 --
 -- 转储表的索引
@@ -236,13 +230,13 @@ ALTER TABLE `announcements`
 -- 使用表AUTO_INCREMENT `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用表AUTO_INCREMENT `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- 使用表AUTO_INCREMENT `statistics`
@@ -254,7 +248,7 @@ ALTER TABLE `statistics`
 -- 使用表AUTO_INCREMENT `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
