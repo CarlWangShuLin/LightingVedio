@@ -6,7 +6,7 @@
    <div class="card-body">
      <div class="table-responsive">
        <div style="width:98%;">
-         <table class="table table-bordered" width="100%" cellspacing="0">
+         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
            <?php
             $queryr  = 'SELECT * ';
