@@ -9,11 +9,11 @@
          <table class="table table-bordered" width="100%" cellspacing="0">
 
            <?php
-            $query  = 'SELECT * ';
-            $query .= 'FROM videos ';
-            $query .= 'ORDER BY vd_popularity DESC';
-            $result = mysqli_query($connection, $query);
-            if (!$result) {
+            $queryr  = 'SELECT * ';
+            $queryr .= 'FROM videos ';
+            $queryr .= 'ORDER BY vd_popularity DESC';
+            $resultr = mysqli_query($connection, $queryr);
+            if (!$resultr) {
               die('query is wrong');
             }
             ?>
@@ -39,7 +39,7 @@
            <tbody>
 
              <?php
-              while ($row = mysqli_fetch_array($result)) {
+              while ($row = mysqli_fetch_array($resultr)) {
                 echo "<tr>";
                 echo "<td>" . $row["vd_popularity"] . "</td>";
                 echo "<td>" . $row["vd_id"] . "</td>";
