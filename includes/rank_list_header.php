@@ -27,6 +27,7 @@ require('db.php');
     <link href="../css/scrollbar.css" rel="stylesheet" type="text/css" />
     <link href="../css/jason_lv.css" rel="stylesheet" type="text/css" />
     <link href="../css/yema.css" rel="stylesheet" type="text/css" />
+    <link href="../css/button.css" rel="stylesheet" type="text/css" />
     <!--// Javascript //-->
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/ddsmoothmenu.js"></script>

@@ -3,7 +3,6 @@
 require('../includes/rank_list_header.php');
 require('../includes/db.php');
 require('select.php');
-require('comment.php');
 ?>
 <!-- Popularity -->
 <?php
@@ -12,9 +11,7 @@ $queryb  = "UPDATE videos ";
 $queryb .= "SET vd_popularity=vd_popularity+1 ";
 $queryb .= "WHERE vd_id = $vd_id";
 mysqli_query($connection, $queryb);
-if (!$result) {
-    die("query is wrong");
- }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -120,52 +117,49 @@ var player = new Aliplayer({
 );
 </script>
 
-
-
-        <!-- Comments Form -->
-        <div class="card my-4">
+  <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
-            <form method="post" action="videopage.php">
+           <form method="post" action="comment.php"class="style">
               <div class="form-group">
-              <textarea name="content" class="form-control" rows="3"></textarea>
+              <input type="text" name="cm_name" placeholder="Title" required>
+              <input type="number" name="vd_id" readonly="readonly" value="<?php echo $vd_id; ?>">
+              <textarea name="cm_contents" class="form-control" rows="3" placeholder="Content" required></textarea>
               </div>
               <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
-
-        <div style="background-color: white !important;">
-        <!-- Single Comment -->
         
-        <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-        <h5 class="mt-0">Commenter Name</h5>
-        <?php echo $content; ?>
-        </div>
-        </div>
+ <?php
 
-        </div>
-        </div>
+                        $vd_id = $_GET['id'];
+                        $query = "SELECT * ";
+                        $query .= "FROM comments ";
+                        $query .= "WHERE vd_id = $vd_id";
+                        $result = mysqli_query($connection, $query);
+                        //echo $query;
+                        if (!$result) {
+                            die("query is wrong");
+}
+                      while ($row = mysqli_fetch_array($result)) {
+                        echo '<div style="background-color: white !important;">';
+                        
+                        echo '<div class="media mb-4">';
+                        echo '<div class="media-body">';
+                        echo '<h5 class="mt-0">'. $row['cm_name'] . '</h5>';
+                        echo '<div>'. $row['cm_contents'] . '</div>';
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        
+
+                      }
+?>
 
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<?php
-
-if (isset($_POST['submit'])){
-
-  $content = $_POST['cm_content'];
-  
-$query = "INSERT INTO comments (cm_contents) VALUES ('$content')";
-$result = mysqli_query($connection, $query);
-mysqli_query($connection, $query);
-
-}
-
-?>
 
 </body>
 </html>

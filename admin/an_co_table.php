@@ -39,7 +39,7 @@ require_once('../includes/adminhead.php');
         <?php
         
         $query = "SELECT * ";
-        $query .= "FROM Announcements";
+        $query .= "FROM announcements";
         
         //echo $query;
         

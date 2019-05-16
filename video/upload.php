@@ -1,5 +1,5 @@
 <?php
-ini_set("error_reporting","E_ALL & ~E_NOTICE");
+ini_set("error_reporting", "E_ALL & ~E_NOTICE");
 require_once('../includes/db.php');
 ?>
 <?php
@@ -61,11 +61,12 @@ if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
 }
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
+        $vd_content = $_POST['vd_content'];
 
-        $query  = "INSERT INTO videos (vd_file, vd_name, vd_date) ";
-        $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_date')";
+        $query  = "INSERT INTO videos (vd_file, vd_name, vd_content, vd_date, vd_popularity) ";
+        $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_content', '$vd_date', '0')";
 
-            //echo $query;
+        //echo $query;
         header('Location: videos.php');
         mysqli_query($connection, $query);
 }

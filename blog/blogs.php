@@ -87,10 +87,6 @@ require_once('../includes/rank_list_header.php');
                 }
                 
                 
-
-
-
-
                 while ($loop = mysqli_fetch_array($result)) {
                     $acid = $loop['ac_id'];
                     $query3 = "select ac_name from accounts where ac_id = '$acid'";
