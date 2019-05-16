@@ -1,6 +1,7 @@
 body{
     background-color: black !important;
-    background-image: url(../images/bigbg1.jpg);
+    background-image: url(../images/bg3.jpg) !important;
+    background-repeat: repeat;
 }
 .container{
     margin: auto;
