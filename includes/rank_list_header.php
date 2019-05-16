@@ -67,14 +67,6 @@ require('db.php');
                     <li><a href="../payment/payment.php">VIP </a></li>
                 </ul>
             </div>
-            <!-- Top Section right Links -->
-            <div class="links_icons">
-                <ul style="margin-top: 0px;">
-                    <li class="last lang">Language: <a href="#"><img src="../images/flag1.gif" alt="" /></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="clear"></div>
         <!-- Header -->
         <div id="masthead">
             <!-- Logo -->
