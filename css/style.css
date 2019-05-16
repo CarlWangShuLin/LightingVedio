@@ -12,9 +12,7 @@
 
 body {
 	min-height: 1000px;
-	background-image: url(../images/bg2.jpg);
-	background-repeat: no-repeat;
-	background-color: #000;
+	background-color:#4e3d3d;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
 	color: #666;
@@ -22,14 +20,14 @@ body {
 
 .bg2 {
 	height: 100%;
-	background-image: url(../images/bg2.jpg);
+	background-color: black;
 	background-position: 50% 153px;
 }
 
 .biglines {
 	width: 100%;
 	height: 428px;
-	background-image: url(../images/bg.gif);
+	background-color: black;
 	background-repeat: repeat-x;
 	display: inline-block;
 	position: absolute;
@@ -39,7 +37,7 @@ body {
 .smalllines {
 	width: 100%;
 	height: 153px;
-	background-image: url(../images/bg.gif);
+	background-color: black;
 	background-repeat: repeat-x;
 	display: inline-block;
 	position: absolute;
