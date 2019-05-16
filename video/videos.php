@@ -22,7 +22,7 @@ require('../includes/rank_list_header.php');
                 <input class="btn btn-primary" type="file" name="myfile">
                 <div class="input-group">
                     <input class="videoname" type="text" name="videoname" placeholder="Videoname">
-                    <input class="form-control" type="text" name="vd_content" placeholder="Description">
+                    <input class="form-control" type="text" name="vd_content" placeholder="Video Description">
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
