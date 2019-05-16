@@ -2,47 +2,43 @@
  <div style="margin-top: 20px;">
    <div class="card-header" style="font-size: 18px;">
      <i class="fas fa-table"></i>
-     Rank list of videos</div>
+     My account Information</div>
    <div class="card-body">
      <div class="table-responsive">
        <div style="width:98%;">
-         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
+         <table class="table table-bordered" width="100%" cellspacing="0">
            <?php
-            $queryr  = 'SELECT * ';
-            $queryr .= 'FROM videos ';
-            $queryr .= 'ORDER BY vd_popularity DESC';
-            $resultr = mysqli_query($connection, $queryr);
-            if (!$resultr) {
+            $ac_id = $_SESSION['login_id'];
+            $query  = "SELECT * ";
+            $query .= "FROM accounts ";
+            $query .= "WHERE ac_id = $ac_id";
+            $result = mysqli_query($connection, $query);
+            if (!$result) {
               die('query is wrong');
             }
             ?>
 
            <thead>
              <tr>
-               <th style="color: #cc0000;font-weight: 900;">Popularity</th>
-               <th>Video ID</th>
+               <th>My ID</th>
                <th>Name</th>
-               <th>Datetime</th>
+               <th>Password</th>
+               <th>Age</th>
+               <th>Phone Number</th>
+               <th>Email</th>
              </tr>
            </thead>
-           <tfoot>
-             <tr>
-               <th style="color: #cc0000;font-weight: 900;">Popularity</th>
-               <th>Video ID</th>
-               <th>Name</th>
-               <th>Datetime</th>
-             </tr>
-           </tfoot>
            <tbody>
 
              <?php
-              while ($row = mysqli_fetch_array($resultr)) {
+              while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                echo "<td>" . $row["vd_popularity"] . "</td>";
-                echo "<td>" . $row["vd_id"] . "</td>";
-                echo "<td>" . $row["vd_name"] . "</td>";
-                echo "<td>" . $row["vd_date"] . "</td>";
+                echo "<td>" . $row["ac_id"] . "</td>";
+                echo "<td>" . $row["ac_name"] . "</td>";
+                echo "<td>" . $row["ac_password"] . "</td>";
+                echo "<td>" . $row["ac_age"] . "</td>";
+                echo "<td>" . $row["ac_phone"] . "</td>";
+                echo "<td>" . $row["ac_email"] . "</td>";
                 echo "</tr>";
               }
               ?>
