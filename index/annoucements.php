@@ -9,7 +9,10 @@ if (!$result) {
 ?>
 <!-- Recent Announcement -->
 <div class="recent_videos">
-    <h1>Announcement</h1>
+    <div class="card-header" style="font-size: 18px; text-align:center;">
+        Announcement
+    </div>
+
     <?php
     while ($row = mysqli_fetch_array($result)) {
         echo "

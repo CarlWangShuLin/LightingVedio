@@ -11,7 +11,6 @@ require('../includes/rank_list_header.php');
 
         <!-- Rank list & Annoucements -->
         <?php
-        require('../includes/table_videos_rank_list.php');
         require('../index/annoucements.php');
         ?>
 
