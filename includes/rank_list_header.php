@@ -96,10 +96,5 @@ require('db.php');
                     <div class="clear"></div>
                 </div>
             </div>
-            <!-- Search -->
-            <div class="search">
-                <input type="text" value="Enter keyword to search" id="searchBox" name="s" onblur="if(this.value == '') { this.value = 'Enter keyword to search'; }" onfocus="if(this.value == 'Enter keyword to search') { this.value = ''; }" class="bar" />
-                <a href="#" class="go">&nbsp;</a>
-            </div>
         </div>
         <div class="clear"></div>
