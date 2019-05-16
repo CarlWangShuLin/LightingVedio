@@ -25,7 +25,7 @@ require_once('../includes/adminhead.php');
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h5 class="card-category">Playback</h5>
-                                <h4 class="card-title">Playback Statistics</h4>                  
+                                <h4 class="card-title">Playback Statistics of each video</h4>                  
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
@@ -42,8 +42,8 @@ require_once('../includes/adminhead.php');
                     <div class="table">
                         <div class="card card-chart">
                             <div class="card-header">
-                                <h5 class="card-category">Upload</h5>
-                                <h4 class="card-title">Upload Statistics</h4>                               
+                                <h5 class="card-category">Playback</h5>
+                                <h4 class="card-title">Playback Statistics of total video per day</h4>                               
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
@@ -60,8 +60,8 @@ require_once('../includes/adminhead.php');
                     <div class="table">
                         <div class="card card-chart">
                             <div class="card-header">
-                                <h5 class="card-category">Share Statistics</h5>
-                                <h4 class="card-title">Share Statistics</h4>
+                                <h5 class="card-category">Upload Statistics</h5>
+                                <h4 class="card-title">Upload Statistics</h4>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
