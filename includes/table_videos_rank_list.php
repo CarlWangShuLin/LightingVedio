@@ -24,7 +24,6 @@
                <th>Video ID</th>
                <th>Name</th>
                <th>Datetime</th>
-               <th>Post by</th>
              </tr>
            </thead>
            <tfoot>
@@ -33,7 +32,6 @@
                <th>Video ID</th>
                <th>Name</th>
                <th>Datetime</th>
-               <th>Post by</th>
              </tr>
            </tfoot>
            <tbody>
@@ -45,7 +43,6 @@
                 echo "<td>" . $row["vd_id"] . "</td>";
                 echo "<td>" . $row["vd_name"] . "</td>";
                 echo "<td>" . $row["vd_date"] . "</td>";
-                echo "<td>" . $row["ac_id"] . "</td>";
                 echo "</tr>";
               }
               ?>
