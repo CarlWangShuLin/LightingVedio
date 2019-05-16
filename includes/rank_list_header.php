@@ -1,5 +1,5 @@
 <?php
-ini_set("error_reporting","E_ALL & ~E_NOTICE");
+ini_set("error_reporting", "E_ALL & ~E_NOTICE");
 require('logincheck.php');
 require('db.php');
 ?>
@@ -67,6 +67,8 @@ require('db.php');
                     <li><a href="../payment/payment.php">VIP </a></li>
                 </ul>
             </div>
+        </div>
+        <div class="clear"></div>
         <!-- Header -->
         <div id="masthead">
             <!-- Logo -->
