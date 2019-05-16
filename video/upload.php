@@ -1,10 +1,11 @@
 <?php
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
 require_once('../includes/db.php');
 ?>
 <?php
 $save_path = "../mp4/";                               //文件保存路径
 $max_size = 100000000000000000000000000000000000000000;  //上传文件最大值
-$allow_type = array('mp4');          //允许上传的类型
+$allow_type = array("mp4");          //允许上传的类型
 $videoname = $_POST['videoname'];
 $vd_date = date("Y-m-d");
 
@@ -14,22 +15,22 @@ if (!is_dir($save_path))
 
 //判断文件是否上传成功
 if ($_FILES['myfile']['error']) {
-        echo "文件上传失败<br>";
+        echo "File upload failed<br>";
         switch ($_FILES['myfile']['error']) {
                 case 1:
-                        die('上传的文件超出系统的最大值<br>');
+                        die('The maximum number of files uploaded is exceeded<br>');
                         break;
                 case 2:
-                        die('上传的文件超出表单允许的最大值<br>');
+                        die('The uploaded files exceed the maximum allowed by the form<br>');
                         break;
                 case 3:
-                        die('文件只有部分被上传<br>');
+                        die('Only part of the file is uploaded<br>');
                         break;
                 case 4:
-                        die('没有上传任何文件<br>');
+                        die('No files were uploaded<br>');
                         break;
                 default:
-                        die('未知错误<br>');
+                        die('An unknown error<br>');
                         break;
         }
 }
@@ -37,12 +38,12 @@ if ($_FILES['myfile']['error']) {
 //通过文件的后缀判断是否为合法的文件名
 $hz = array_pop(explode('.', $_FILES['myfile']['name']));
 if (!in_array($hz, $allow_type)) {
-        die("该类型不允许上传<br>");
+        die("Upload is not allowed for this type<br>");
 }
 
 //判断文件是否超过允许的大小
 if ($max_size < $_FILES['myfile']['size']) {
-        die("文件超出PHP允许的最大值<br>");
+        die("The file exceeds the maximum allowed by PHP<br>");
 }
 
 //为了防止文件名重复，在系统中使用新名称
@@ -53,23 +54,19 @@ if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
         if (move_uploaded_file($_FILES['myfile']['tmp_name'], $save_path . '/' . $save_file_name)) {
                 // echo "上传成功!<br>文件{$_FILES['myfile']['name']}保存在{$save_path}/{$save_file_name}!<br>";
         } else {
-                echo "文件移动失败!<br>";
+                echo "File movement failed!<br>";
         }
 } else {
-        die("文件{$_FILES['myfile']['name']}不是一个HTTP POST上传的合法文件");
-        
-}
+        die("File{$_FILES['myfile']['name']}Not a valid file uploaded by an HTTP POST");
 }
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
 
         $query  = "INSERT INTO videos (vd_file, vd_name, vd_date) ";
         $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_date')";
-        
+
+            //echo $query;
         header('Location: videos.php');
         mysqli_query($connection, $query);
 }
-
-// 5. close db connec tio
-mysqli_close($connection);
 ?>

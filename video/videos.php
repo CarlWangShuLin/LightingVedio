@@ -23,11 +23,11 @@ if (!$result) {
     	<!-- Bread Crumb -->
         <div id="crumb">
             <h2>Upload Video:</h2>
-            <form method="POST" action="videos.php" enctype="multipart/form-data">
+            <form method="POST" action="upload.php" enctype="multipart/form-data">
                 <input type="hidden" name="MAX_FILE_SIZE" >
                 <input class="btn btn-primary" type="file" name="myfile">
                 <div class="input-group">
-                <input class="form-control" type="text" name="videoname" placeholder="Videoname" required>
+                <input class="form-control" type="text" name="videoname" placeholder="Videoname">
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit" class="text">Submit</button>
             </form>
