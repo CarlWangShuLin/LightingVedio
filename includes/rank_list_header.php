@@ -67,14 +67,6 @@ require('db.php');
                     <li><a href="../payment/payment.php">VIP </a></li>
                 </ul>
             </div>
-            <!-- Top Section right Links -->
-            <div class="links_icons">
-                <ul style="margin-top: 0px;">
-                    <li class="last lang">Language: <a href="#"><img src="../images/flag1.gif" alt="" /></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="clear"></div>
         <!-- Header -->
         <div id="masthead">
             <!-- Logo -->
@@ -95,11 +87,6 @@ require('db.php');
                     </ul>
                     <div class="clear"></div>
                 </div>
-            </div>
-            <!-- Search -->
-            <div class="search">
-                <input type="text" value="Enter keyword to search" id="searchBox" name="s" onblur="if(this.value == '') { this.value = 'Enter keyword to search'; }" onfocus="if(this.value == 'Enter keyword to search') { this.value = ''; }" class="bar" />
-                <a href="#" class="go">&nbsp;</a>
             </div>
         </div>
         <div class="clear"></div>

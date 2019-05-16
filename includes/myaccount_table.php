@@ -1,7 +1,6 @@
  <!-- DataTables -->
  <div style="margin-top: 20px;">
-   <div class="card-header" style="font-size: 18px;">
-     <i class="fas fa-table"></i>
+   <div class="card-header" style="font-size: 18px; text-align:center;">
      My account Information</div>
    <div class="card-body">
      <div class="table-responsive">
