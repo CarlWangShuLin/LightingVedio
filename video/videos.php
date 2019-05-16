@@ -5,14 +5,7 @@ require('../includes/rank_list_header.php');
 ?>
 
 <!-- Video -->
-<?php
-$query = "SELECT * FROM videos";
-$result = mysqli_query($connection, $query);
-if (!$result) {
-   die("query is wrong");
-}
 
-?>
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +43,20 @@ if (!$result) {
                 <div class="clear"></div>
                 <!-- Video Listing -->
                     <?php
-
+                        $num_rec_per_page = 6;   // 每页显示数量
+                        if (isset($_GET["page"])) {
+                            $page  = $_GET["page"];
+                        } else {
+                            $page = 1;
+                        };
+                        $start_from = ($page - 1) * $num_rec_per_page;
+                        $query = "SELECT * ";
+                        $query .= "FROM videos order by vd_id desc LIMIT $start_from, $num_rec_per_page ";
+                        $result = mysqli_query($connection, $query);
+                        //echo $query;
+                        if (!$result) {
+                            die("query is wrong");
+}
                       while ($row = mysqli_fetch_array($result)) {
                         echo '<ul class="display">';
                         echo '<li>';
@@ -84,21 +90,7 @@ if (!$result) {
 
         <ul>
             <?php
-             $num_rec_per_page = 6;   // 每页显示数量
-             if (isset($_GET["page"])) {
-                 $page  = $_GET["page"];
-             } else {
-                 $page = 1;
-             };
-             $start_from = ($page - 1) * $num_rec_per_page;
-             $query = "SELECT * ";
-             $query .= "FROM videos order by vd_id desc LIMIT $start_from, $num_rec_per_page ";
-             $result = mysqli_query($connection, $query);
-             //echo $query;
-             if (!$result) {
-                 die("query is wrong");
-             }
-
+             
             $query2 = "SELECT * FROM videos";
             $rs_result = mysqli_query($connection, $query2); //查询数据
             $total_records = mysqli_num_rows($rs_result);  // 统计总共的记录条数
