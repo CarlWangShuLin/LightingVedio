@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- 主机： 127.0.0.1
--- 生成日期： 2019-05-16 15:36:48
--- 服务器版本： 10.1.38-MariaDB
--- PHP 版本： 7.3.2
+-- 主机： localhost
+-- 生成日期： 2019-05-22 10:17:21
+-- 服务器版本： 5.5.62-log
+-- PHP 版本： 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `ead`
+-- 数据库： `lighting_video`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +48,9 @@ INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`,
 (8, 'Admin', '123', 20, '15678912456', '361@11.com', '2'),
 (15, 'Fitch', '123123', 20, '14567956121', 'Fithc@123.com', '1'),
 (16, 'Jay', '123123', 20, '15968956478', 'jay@123.com', '1'),
-(17, 'Jamie', '123123', 20, '14562478962', 'jamie@123.com', '1');
+(17, 'Jamie', '123123', 20, '14562478962', 'jamie@123.com', '1'),
+(18, 'nmd', 'nmd', 0, '', '100@qq.com', '1'),
+(20, 'fitch', '123', 111, '111', '11@qq.com', '1');
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,9 @@ INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`) VAL
 (10, 'Bug', '2019-05-16', 'Other user can not change blog', 1),
 (11, 'Test', '2019-05-16', 'Testing other user can change Blog', 16),
 (12, 'Testing', '2019-05-16', 'Testing page function', 8),
-(13, 'Class', '2019-05-16', 'Fitch is a dog', 8);
+(13, 'Class', '2019-05-16', 'Fitch is a dog', 8),
+(14, 'Hello Lighting Video!', '2019-05-17', 'I am Jason, and u?', 1),
+(16, '1231', '2019-05-20', '13213', 20);
 
 -- --------------------------------------------------------
 
@@ -112,41 +116,17 @@ CREATE TABLE `comments` (
   `vd_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- 表的结构 `statistics`
+-- 转存表中的数据 `comments`
 --
 
-CREATE TABLE `statistics` (
-  `st_id` int(11) NOT NULL,
-  `month` date NOT NULL,
-  `share` varchar(11) NOT NULL,
-  `upload` varchar(11) NOT NULL,
-  `playback` varchar(11) NOT NULL,
-  `vd_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- 转存表中的数据 `statistics`
---
-
-INSERT INTO `statistics` (`st_id`, `month`, `share`, `upload`, `playback`, `vd_id`) VALUES
-(1, '2019-04-02', '123', '456', '123', 1),
-(2, '2019-04-01', '111', '222', '333', 2),
-(3, '2019-04-02', '123', '456', '123', 3),
-(4, '2019-04-01', '111', '222', '333', 4),
-(5, '2019-04-04', '200', '300', '200', 5),
-(6, '2019-04-06', '420', '400', '500', 6),
-(7, '2019-04-04', '200', '300', '200', 7),
-(8, '2019-04-06', '420', '400', '500', 8),
-(9, '2019-05-01', '153', '453', '356', 1),
-(10, '2019-05-02', '345', '235', '234', 2),
-(11, '2019-05-08', '123', '234', '456', 1),
-(12, '2019-05-08', '123', '234', '456', 1),
-(13, '2019-04-10', '234', '124', '345', 0),
-(14, '2019-04-11', '321', '342', '432', 0),
-(15, '2019-04-12', '432', '234', '145', 0);
+INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`, `vd_id`) VALUES
+(1, 'Wow', 'Wow, awesome! This music is incredible.', 27),
+(2, '111', 'nice啊', 28),
+(3, 'Jason', 'It sounds so good. I feel home.', 28),
+(4, 'Wow', 'love this song 3000!', 28),
+(5, 'Amazing!', 'That is a big 3-point！Obviously, KD is a top shooter in NBA history.', 29),
+(6, 'Comment', 'I also like this ', 28);
 
 -- --------------------------------------------------------
 
@@ -168,7 +148,17 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`, `vd_popularity`) VALUES
-(19, 'Shanghai', 'This is Shanghai', '2019-05-16', '../mp4/20190516153315749.mp4', 0);
+(20, '2018 German Grand Prix', 'The Ferrari formula driver Vettel lost his 1st position', '2019-05-17', '../mp4/20190517003211299.mp4', 1532),
+(21, 'Game', 'This is a game called Polybridge. I think that it is very good to practice your IQ and Architecture!', '2019-05-17', '../mp4/20190517003440458.mp4', 4231),
+(22, 'Ukulele', 'This is a girl who played the Ukulele.', '2019-05-17', '../mp4/20190517003523491.mp4', 1011),
+(23, 'Hurrcan', 'This is a car called hurrcan which drive too fast and it is over speed.', '2019-05-17', '../mp4/20190517003608535.mp4', 3011),
+(24, 'Win the FIA GTC', 'This is a game called Gran Turismo Sport and I get the 1st position!', '2019-05-17', '../mp4/20190517003721648.mp4', 4302),
+(25, 'Dangerous driving', 'This is a very closed accident I have ever met. Please guys must drive safety in street!', '2019-05-17', '../mp4/20190517003822447.mp4', 3201),
+(28, 'Music-five hundred miles', 'a music video', '2019-05-20', '../mp4/20190520185620663.mp4', 8729),
+(29, 'Durant', 'The god of death', '2019-05-20', '../mp4/20190520193753513.mp4', 3204),
+(32, 'CXK', 'This is a famous star which come from NBA image ambassador', '2019-05-20', '../mp4/20190520195857650.mov', 7356),
+(33, 'Westlife', 'This is a good music video', '2019-05-20', '../mp4/20190520200340431.mp4', 2098),
+(36, 'IP man joins Marvel', 'IP man confirms to join marvel universe! Put on a quantum suit and fight with the avengers.', '2019-05-20', '../mp4/20190520205708415.mp4', 5838);
 
 --
 -- 转储表的索引
@@ -199,12 +189,6 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`cm_id`);
 
 --
--- 表的索引 `statistics`
---
-ALTER TABLE `statistics`
-  ADD PRIMARY KEY (`st_id`);
-
---
 -- 表的索引 `videos`
 --
 ALTER TABLE `videos`
@@ -218,7 +202,7 @@ ALTER TABLE `videos`
 -- 使用表AUTO_INCREMENT `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `ac_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ac_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- 使用表AUTO_INCREMENT `announcements`
@@ -230,25 +214,19 @@ ALTER TABLE `announcements`
 -- 使用表AUTO_INCREMENT `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- 使用表AUTO_INCREMENT `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
-
---
--- 使用表AUTO_INCREMENT `statistics`
---
-ALTER TABLE `statistics`
-  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用表AUTO_INCREMENT `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
