@@ -13,7 +13,7 @@ require('../includes/db.php');
             <!-- Top Section Left Links -->
             <div class="toplinks">
         	<ul style="margin-top: 0px;">
-                <li><a href="../log/login.php">Login</a></li>
+                <li><a href="../index/">Client</a></li>
                 <li><a href="../log/logout.php">Log out</a></li>
                 <li><a href="../log/signup.php">Signup</a></li>
             </ul>

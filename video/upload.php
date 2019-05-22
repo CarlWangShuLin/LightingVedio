@@ -4,8 +4,8 @@ require_once('../includes/db.php');
 ?>
 <?php
 $save_path = "../mp4/";                               //文件保存路径
-$max_size = 20971520;  //上传文件最大值
-$allow_type = array("mp4");          //允许上传的类型
+$max_size = 104857600;  //上传文件最大值
+$allow_type = array("mp4","mov","rmvb","gif","flash","avi","MP4","MOV","RMVB","GIF","FLASH","AVI");          //允许上传的类型
 $videoname = $_POST['videoname'];
 $vd_date = date("Y-m-d");
 
@@ -38,7 +38,7 @@ if ($_FILES['myfile']['error']) {
 //通过文件的后缀判断是否为合法的文件名
 $hz = array_pop(explode('.', $_FILES['myfile']['name']));
 if (!in_array($hz, $allow_type)) {
-        die("Upload is not allowed for this type<br>");
+        die("");
 }
 
 //判断文件是否超过允许的大小

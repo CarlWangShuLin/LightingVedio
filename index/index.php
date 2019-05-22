@@ -8,6 +8,7 @@ require('../includes/rank_list_header.php');
 
     <!-- Column 1 -->
     <div class="col1">
+      <img style="width:100%;" src="../images/poster.png">
 
         <!-- Rank list & Annoucements -->
         <?php
