@@ -6,10 +6,10 @@ require('select.php');
 ?>
 <!-- Popularity -->
 <?php
+$localtime=date('y-m-d H:i:s',time());
 $vd_id = $_GET['id'];
-$queryb  = "UPDATE videos ";
-$queryb .= "SET vd_popularity=vd_popularity+1 ";
-$queryb .= "WHERE vd_id = $vd_id";
+$queryb  = "INSERT INTO popularity (pop_time, vd_id)";
+$queryb .= "VALUES ('$localtime', '$vd_id')";
 mysqli_query($connection, $queryb);
 
 ?>

@@ -2,30 +2,22 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- 主机： localhost
--- 生成日期： 2019-05-22 10:17:21
--- 服务器版本： 5.5.62-log
--- PHP 版本： 7.3.5
+-- Host: localhost:8889
+-- Generation Time: May 23, 2019 at 11:06 AM
+-- Server version: 5.7.25
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- 数据库： `lighting_video`
+-- Database: `lighting_video`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -39,7 +31,7 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `accounts`
+-- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`, `ac_email`, `ac_type`) VALUES
@@ -55,7 +47,7 @@ INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `announcements`
+-- Table structure for table `announcements`
 --
 
 CREATE TABLE `announcements` (
@@ -65,7 +57,7 @@ CREATE TABLE `announcements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `announcements`
+-- Dumping data for table `announcements`
 --
 
 INSERT INTO `announcements` (`an_id`, `an_name`, `an_contents`) VALUES
@@ -77,7 +69,7 @@ INSERT INTO `announcements` (`an_id`, `an_name`, `an_contents`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `blogs`
+-- Table structure for table `blogs`
 --
 
 CREATE TABLE `blogs` (
@@ -89,7 +81,7 @@ CREATE TABLE `blogs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `blogs`
+-- Dumping data for table `blogs`
 --
 
 INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`) VALUES
@@ -106,7 +98,7 @@ INSERT INTO `blogs` (`bg_id`, `bg_title`, `bg_date`, `bg_contents`, `ac_id`) VAL
 -- --------------------------------------------------------
 
 --
--- 表的结构 `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -117,7 +109,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`, `vd_id`) VALUES
@@ -131,7 +123,34 @@ INSERT INTO `comments` (`cm_id`, `cm_name`, `cm_contents`, `vd_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `videos`
+-- Table structure for table `popularity`
+--
+
+CREATE TABLE `popularity` (
+  `pop_id` int(11) NOT NULL,
+  `pop_time` datetime NOT NULL,
+  `vd_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `popularity`
+--
+
+INSERT INTO `popularity` (`pop_id`, `pop_time`, `vd_id`) VALUES
+(1, '2019-05-23 13:28:14', 33),
+(2, '2019-05-23 13:28:14', 32),
+(3, '2019-05-23 13:28:14', 25),
+(4, '2019-05-23 13:28:14', 28),
+(5, '2019-05-23 11:03:48', 36),
+(6, '2019-05-23 11:03:50', 36),
+(7, '2019-05-23 11:03:52', 32),
+(8, '2019-05-23 11:03:54', 32),
+(9, '2019-05-23 11:04:12', 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `videos`
 --
 
 CREATE TABLE `videos` (
@@ -139,96 +158,102 @@ CREATE TABLE `videos` (
   `vd_name` varchar(30) NOT NULL,
   `vd_content` text NOT NULL,
   `vd_date` date NOT NULL,
-  `vd_file` text NOT NULL,
-  `vd_popularity` int(99) DEFAULT NULL
+  `vd_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `videos`
+-- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`, `vd_popularity`) VALUES
-(20, '2018 German Grand Prix', 'The Ferrari formula driver Vettel lost his 1st position', '2019-05-17', '../mp4/20190517003211299.mp4', 1532),
-(21, 'Game', 'This is a game called Polybridge. I think that it is very good to practice your IQ and Architecture!', '2019-05-17', '../mp4/20190517003440458.mp4', 4231),
-(22, 'Ukulele', 'This is a girl who played the Ukulele.', '2019-05-17', '../mp4/20190517003523491.mp4', 1011),
-(23, 'Hurrcan', 'This is a car called hurrcan which drive too fast and it is over speed.', '2019-05-17', '../mp4/20190517003608535.mp4', 3011),
-(24, 'Win the FIA GTC', 'This is a game called Gran Turismo Sport and I get the 1st position!', '2019-05-17', '../mp4/20190517003721648.mp4', 4302),
-(25, 'Dangerous driving', 'This is a very closed accident I have ever met. Please guys must drive safety in street!', '2019-05-17', '../mp4/20190517003822447.mp4', 3201),
-(28, 'Music-five hundred miles', 'a music video', '2019-05-20', '../mp4/20190520185620663.mp4', 8729),
-(29, 'Durant', 'The god of death', '2019-05-20', '../mp4/20190520193753513.mp4', 3204),
-(32, 'CXK', 'This is a famous star which come from NBA image ambassador', '2019-05-20', '../mp4/20190520195857650.mov', 7356),
-(33, 'Westlife', 'This is a good music video', '2019-05-20', '../mp4/20190520200340431.mp4', 2098),
-(36, 'IP man joins Marvel', 'IP man confirms to join marvel universe! Put on a quantum suit and fight with the avengers.', '2019-05-20', '../mp4/20190520205708415.mp4', 5838);
+INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`) VALUES
+(20, '2018 German Grand Prix', 'The Ferrari formula driver Vettel lost his 1st position', '2019-05-17', '../mp4/20190517003211299.mp4'),
+(21, 'Game', 'This is a game called Polybridge. I think that it is very good to practice your IQ and Architecture!', '2019-05-17', '../mp4/20190517003440458.mp4'),
+(22, 'Ukulele', 'This is a girl who played the Ukulele.', '2019-05-17', '../mp4/20190517003523491.mp4'),
+(23, 'Hurrcan', 'This is a car called hurrcan which drive too fast and it is over speed.', '2019-05-17', '../mp4/20190517003608535.mp4'),
+(24, 'Win the FIA GTC', 'This is a game called Gran Turismo Sport and I get the 1st position!', '2019-05-17', '../mp4/20190517003721648.mp4'),
+(25, 'Dangerous driving', 'This is a very closed accident I have ever met. Please guys must drive safety in street!', '2019-05-17', '../mp4/20190517003822447.mp4'),
+(28, 'Music-five hundred miles', 'a music video', '2019-05-20', '../mp4/20190520185620663.mp4'),
+(29, 'Durant', 'The god of death', '2019-05-20', '../mp4/20190520193753513.mp4'),
+(32, 'CXK', 'This is a famous star which come from NBA image ambassador', '2019-05-20', '../mp4/20190520195857650.mov'),
+(33, 'Westlife', 'This is a good music video', '2019-05-20', '../mp4/20190520200340431.mp4'),
+(36, 'IP man joins Marvel', 'IP man confirms to join marvel universe! Put on a quantum suit and fight with the avengers.', '2019-05-20', '../mp4/20190520205708415.mp4');
 
 --
--- 转储表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`ac_id`);
 
 --
--- 表的索引 `announcements`
+-- Indexes for table `announcements`
 --
 ALTER TABLE `announcements`
   ADD PRIMARY KEY (`an_id`);
 
 --
--- 表的索引 `blogs`
+-- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
   ADD PRIMARY KEY (`bg_id`);
 
 --
--- 表的索引 `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`cm_id`);
 
 --
--- 表的索引 `videos`
+-- Indexes for table `popularity`
+--
+ALTER TABLE `popularity`
+  ADD PRIMARY KEY (`pop_id`);
+
+--
+-- Indexes for table `videos`
 --
 ALTER TABLE `videos`
   ADD PRIMARY KEY (`vd_id`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `ac_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- 使用表AUTO_INCREMENT `announcements`
+-- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
   MODIFY `an_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- 使用表AUTO_INCREMENT `blogs`
+-- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
   MODIFY `bg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- 使用表AUTO_INCREMENT `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `cm_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- 使用表AUTO_INCREMENT `videos`
+-- AUTO_INCREMENT for table `popularity`
+--
+ALTER TABLE `popularity`
+  MODIFY `pop_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
   MODIFY `vd_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
