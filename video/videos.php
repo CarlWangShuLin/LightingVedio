@@ -54,13 +54,16 @@ require('../includes/rank_list_header.php');
                     $page = 1;
                 };
                 $start_from = ($page - 1) * $num_rec_per_page;
-                $query = "SELECT * ";
-                $query .= "FROM videos order by vd_id desc LIMIT $start_from, $num_rec_per_page ";
+                $query  = "SELECT COUNT(a.pop_id) as popularity, b.vd_id, b.vd_name, b.vd_content, b.vd_date ";
+                $query .= "FROM popularity a, videos b ";
+                $query .= "WHERE a.vd_id = b.vd_id GROUP BY vd_id order by vd_id desc LIMIT $start_from, $num_rec_per_page ";
                 $result = mysqli_query($connection, $query);
                 //echo $query;
                 if (!$result) {
                     die("query is wrong");
                 }
+                //
+
                 while ($row = mysqli_fetch_array($result)) {
                     echo '<ul class="display">';
                     echo '<li>';
@@ -71,7 +74,7 @@ require('../includes/rank_list_header.php');
                     echo    '<p class="txt">' . $row['vd_content'] . '</p>';;
                     echo     '<div class="clear"></div>';
                     echo        '<div class="postedby">';
-                    echo        '<p class="views"><span class="left">Views:' . $row["vd_popularity"] . '</span></p>';
+                    echo        '<p class="views"><span class="left">Views:' . $row["popularity"] . '</span></p>';
                     echo    '</div>';
                     echo    '<div class="right">';
                     echo        '<p class="date"><span>' . $row["vd_date"] . '</span></p>';

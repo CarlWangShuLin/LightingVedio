@@ -9,10 +9,12 @@
          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
            <?php
-            $queryr  = 'SELECT * ';
-            $queryr .= 'FROM videos ';
-            $queryr .= 'ORDER BY vd_popularity DESC';
+            $queryr  = 'SELECT COUNT(a.pop_id) as popularity, b.vd_id, b.vd_name, b.vd_date ';
+            $queryr .= 'FROM popularity a, videos b ';
+            $queryr .= 'WHERE a.vd_id = b.vd_id GROUP BY vd_id ';
+            $queryr .= 'ORDER BY COUNT(a.pop_id) DESC';
             $resultr = mysqli_query($connection, $queryr);
+            //echo $queryr;
             if (!$resultr) {
               die('query is wrong');
             }
@@ -39,7 +41,7 @@
              <?php
               while ($row = mysqli_fetch_array($resultr)) {
                 echo "<tr>";
-                echo "<td>" . $row["vd_popularity"] . "</td>";
+                echo "<td>" . $row["popularity"] . "</td>";
                 echo "<td>" . $row["vd_id"] . "</td>";
                 echo "<td>" . $row["vd_name"] . "</td>";
                 echo "<td>" . $row["vd_date"] . "</td>";
