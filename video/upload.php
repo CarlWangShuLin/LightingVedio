@@ -61,13 +61,19 @@ if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
 }
 // 提交路径到数据库
 if (isset($_POST['submit'])) {
+        $vd_id=date('ymdHis',time());
+        $localtime=date('y-m-d H:i:s',time());
         $vd_content = $_POST['vd_content'];
-
-        $query  = "INSERT INTO videos (vd_file, vd_name, vd_content, vd_date, vd_popularity) ";
-        $query .= "VALUES ('{$save_path}{$save_file_name}', '$videoname', '$vd_content', '$vd_date', '0')";
-
+        $query  = "INSERT INTO videos (vd_id, vd_file, vd_name, vd_content, vd_date) ";
+        $query .= "VALUES ('$vd_id', '{$save_path}{$save_file_name}', '$videoname', '$vd_content', '$localtime')";
         //echo $query;
         header('Location: videos.php');
         mysqli_query($connection, $query);
+
+        $querypop  = "INSERT INTO popularity (pop_time, vd_id)";
+        $querypop .= "VALUES ('$localtime', '$vd_id')";
+        //echo $querypop;
+        mysqli_query($connection, $querypop);
+
 }
 ?>

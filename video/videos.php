@@ -62,7 +62,6 @@ require('../includes/rank_list_header.php');
                 if (!$result) {
                     die("query is wrong");
                 }
-                //
 
                 while ($row = mysqli_fetch_array($result)) {
                     echo '<ul class="display">';
