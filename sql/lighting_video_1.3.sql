@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 24, 2019 at 04:41 AM
+-- Generation Time: May 26, 2019 at 06:43 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -43,6 +43,30 @@ INSERT INTO `accounts` (`ac_id`, `ac_name`, `ac_password`, `ac_age`, `ac_phone`,
 (17, 'Jamie', '123123', 20, '14562478962', 'jamie@123.com', '1'),
 (18, 'nmd', 'nmd', 0, '', '100@qq.com', '1'),
 (20, 'fitch', '123', 111, '111', '11@qq.com', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_day`
+--
+
+CREATE TABLE `admin_day` (
+  `date` date NOT NULL,
+  `popularity` varchar(11) NOT NULL,
+  `upload` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_pop`
+--
+
+CREATE TABLE `admin_pop` (
+  `vd_id` varchar(22) NOT NULL,
+  `vd_name` text NOT NULL,
+  `popularity` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -234,6 +258,19 @@ INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`) VA
 ('190524042535', 'FIA GTC', 'This is FiA GTC', '2019-05-24 04:25:35', '../mp4/20190524042535407.mp4'),
 ('190524042604', 'Dangerous driving', 'This is an closed accident', '2019-05-24 04:26:04', '../mp4/20190524042604141.mp4');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vip`
+--
+
+CREATE TABLE `vip` (
+  `vip_id` int(11) NOT NULL,
+  `ac_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `type` varchar(22) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -243,6 +280,12 @@ INSERT INTO `videos` (`vd_id`, `vd_name`, `vd_content`, `vd_date`, `vd_file`) VA
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`ac_id`);
+
+--
+-- Indexes for table `admin_pop`
+--
+ALTER TABLE `admin_pop`
+  ADD UNIQUE KEY `vd_id` (`vd_id`);
 
 --
 -- Indexes for table `announcements`
@@ -273,6 +316,12 @@ ALTER TABLE `popularity`
 --
 ALTER TABLE `videos`
   ADD PRIMARY KEY (`vd_id`);
+
+--
+-- Indexes for table `vip`
+--
+ALTER TABLE `vip`
+  ADD PRIMARY KEY (`vip_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -307,3 +356,9 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `popularity`
   MODIFY `pop_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT for table `vip`
+--
+ALTER TABLE `vip`
+  MODIFY `vip_id` int(11) NOT NULL AUTO_INCREMENT;
