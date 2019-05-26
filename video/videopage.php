@@ -123,7 +123,7 @@ var player = new Aliplayer({
            <form method="post" action="comment.php"class="style">
               <div class="form-group">
               <input type="text" name="cm_name" placeholder="Title" required>
-              <input type="number" name="vd_id" readonly="readonly" value="<?php echo $vd_id; ?>">
+              <input type="number" name="vd_id" readonly="readonly" style="display:none" value="<?php echo $vd_id; ?>">
               <textarea name="cm_contents" class="form-control" rows="3" placeholder="Content" required></textarea>
               </div>
               <button type="submit" name="submit" class="btn btn-primary">Submit</button>

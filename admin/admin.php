@@ -13,9 +13,11 @@ if ($page == 'default') {
     include("chart.php");
 } else if ($page == 'table') {
     include("a_c_table.php");
-} else if ($page == 'blog_video') {
+} else if ($page == 'video_cm') {
     include("b_v_table.php");
-} else if ($page == 'an_co') {
+} else if ($page == 'an') {
     include("an_co_table.php");
-} 
+} else if ($page == "bg") {
+    include("blog.php");
+}
 ?>

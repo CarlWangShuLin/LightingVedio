@@ -212,9 +212,9 @@ require_once('../includes/adminhead.php');
                 <div class="panel panel-default">
                     <!-- /.panel-heading -->
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Comment information sheet</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">VIP sheet</h6>
                         <!-- button start -->
-                        <button data-toggle="modal" data-target="#addcm">Add Comment</button>
+                        <button data-toggle="modal" data-target="#addvip">Add VIP</button>
                         <!-- button end-->
                     </div>
                     <div class="panel-body">
@@ -224,7 +224,7 @@ require_once('../includes/adminhead.php');
                             <?php
 
                             $query = "SELECT * ";
-                            $query .= "FROM comments";
+                            $query .= "FROM vip";
 
                             //echo $query;
 
@@ -236,10 +236,10 @@ require_once('../includes/adminhead.php');
                             ?>
                             <thead>
                                 <tr>
-                                    <th>Comments ID</th>
-                                    <th>Name</th>
-                                    <th>Content</th>
-                                    <th>Video ID</th>
+                                    <th>Vip ID</th>
+                                    <th>Account ID</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
                                     <th>Update</th>
                                     <th>Delete</th>
                                 </tr>
@@ -248,12 +248,12 @@ require_once('../includes/adminhead.php');
                                 <?php
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
-                                    echo "<td>" . $row["cm_id"] . "</td>";
-                                    echo "<td>" . $row["cm_name"] . "</td>";                                   
-                                    echo "<td>" . $row["cm_contents"] . "</td>";
-                                    echo "<td>" . $row["vd_id"] . "</td>";
-                                    echo "<td><button data-toggle='modal' data-target='#updatecm'>update</buttone></td>";
-                                    echo "<td><a class='text' href='deletecm.php?cm_id=" . $row["cm_id"] . "'>delete</a></td>";
+                                    echo "<td>" . $row["vip_id"] . "</td>";
+                                    echo "<td>" . $row["ac_id"] . "</td>";                                   
+                                    echo "<td>" . $row["date"] . "</td>";
+                                    echo "<td>" . $row["type"] . "</td>";
+                                    echo "<td><button data-toggle='modal' data-target='#updatevip'>update</buttone></td>";
+                                    echo "<td><a class='text' href='deletevip.php?vip_id=" . $row["vip_id"] . "'>delete</a></td>";
                                     echo "</tr>";
                                 }
                                 ?>
@@ -265,8 +265,8 @@ require_once('../includes/adminhead.php');
             <!-- DataTales end -->
             <!-- add pop-up start -->
             <div class="container">
-                <form method="post" action="addcm.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
-                    <div class="modal fade" id="addcm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <form method="post" action="addvip.php" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+                    <div class="modal fade" id="addvip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
                         <div class="modal-dialog">
                             <!--  显示模态框对话框型（若不写下一个div则没有颜色）  -->
@@ -274,7 +274,7 @@ require_once('../includes/adminhead.php');
                                 <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
                                 <div class="btn-info modal-header">
-                                    <h4>Write Comment</h4>
+                                    <h4>Add VIP</h4>
                                     <!--  模态框标题模  -->
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <!--  关闭按钮  -->
@@ -284,20 +284,20 @@ require_once('../includes/adminhead.php');
                                     <form class="form-horizontal" role="form">
 
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment id </label>
-                                            <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> VIP id </label>
+                                            <input type="number" class="form-control" name="vip_id" placeholder="<?php echo 'number' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment name </label>
-                                            <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Account ID </label>
+                                            <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment contents </label>
-                                            <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Date </label>
+                                            <input type="date" class="form-control" name="date" placeholder="<?php echo 'date' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Video ID </label>
-                                            <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'id' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Type </label>
+                                            <input type="text" class="form-control" name="type" placeholder="<?php echo 'type' ?>" required>
                                         </div>
 
                                     </form>
@@ -315,15 +315,15 @@ require_once('../includes/adminhead.php');
             <!-- add pop-up end -->
             <!-- update pop-up start -->
             <div class="container">
-                <form method="post" action="updatecm.php" class="form-horizontal" role="form" id="myForm1" onsubmit="return">
-                    <div class="modal fade" id="updatecm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <form method="post" action="updatevip.php" class="form-horizontal" role="form" id="myForm1" onsubmit="return">
+                    <div class="modal fade" id="updatevip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
                         <div class="modal-dialog">
                             <!--  显示模态框对话框模型（若不写下一个div则没有颜色）  -->
                             <div class="modal-content">
                                 <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
                                 <div class="btn-info modal-header">
-                                    <h4>Update Comment</h4>
+                                    <h4>Update VIP</h4>
                                     <!--  模态框标题  -->
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <!--  关闭按钮  -->
@@ -333,20 +333,20 @@ require_once('../includes/adminhead.php');
                                     <form class="form-horizontal" role="form">
 
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment id </label>
-                                            <input type="number" class="form-control" name="cm_id" placeholder="<?php echo 'number' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> VIP id </label>
+                                            <input type="number" class="form-control" name="vip_id" placeholder="<?php echo 'number' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment name </label>
-                                            <input type="text" class="form-control" name="cm_name" placeholder="<?php echo 'name' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Account ID </label>
+                                            <input type="number" class="form-control" name="ac_id" placeholder="<?php echo 'number' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Comment contents </label>
-                                            <input type="text" class="form-control" name="cm_contents" placeholder="<?php echo 'contents' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Date </label>
+                                            <input type="date" class="form-control" name="date" placeholder="<?php echo 'date' ?>" required>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess"> Video ID </label>
-                                            <input type="number" class="form-control" name="vd_id" placeholder="<?php echo 'id' ?>" required>
+                                            <label class="control-label" for="inputSuccess"> Type </label>
+                                            <input type="text" class="form-control" name="type" placeholder="<?php echo 'type' ?>" required>
                                         </div>
                                     </form>
                                 </div>

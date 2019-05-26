@@ -130,12 +130,12 @@ demo = {
       gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
 <?php
-$query1 = "SELECT vd_name, vd_popularity ";
-$query1 .= "FROM videos ";
-$query1 .= "GROUP BY vd_popularity";
+$query1 = "SELECT a.vd_id, a.vd_name, COUNT(b.pop_id) as popularity ";
+$query1 .= "FROM popularity b, videos a ";
+$query1 .= "WHERE a.vd_id = b.vd_id ";
+$query1 .= "GROUP BY vd_name";
 
-// echo $query1;
-
+//echo $query1;
 $result1 = mysqli_query($connection, $query1);
 
 if (!$result1) {
@@ -143,11 +143,17 @@ if (!$result1) {
 }
 
 while ($row1 = mysqli_fetch_array($result1)) {
-
         $video .= '"' . $row1['vd_name'] . '",';
-        $playback .= $row1['vd_popularity'] . ',';
+        $playback .= $row1['popularity'] . ',';
+
+        $queryp  = "INSERT INTO admin_pop (vd_id, date, popularity) ";
+        $queryp .= "SELECT vd_id, substr(pop_time,1,10), COUNT(pop_id) FROM popularity ";
+        $queryp .= "GROUP BY vd_id";
+        //echo $queryp;
+        mysqli_query($connection, $queryp);
 
 }
+
 $video = substr($video, 0, -1);
 $playback = substr($playback, 0, -1);
 ?>
@@ -157,7 +163,7 @@ $playback = substr($playback, 0, -1);
           data: {
               labels: [<?php echo $video; ?>],
               datasets: [{
-                  label: "Population statistics",
+                  label: "Populaty",
                   borderColor: "#f96332",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#f96332",
@@ -187,22 +193,22 @@ $playback = substr($playback, 0, -1);
 
       <?php
 //playback query
-$query3 = "SELECT vd_date, SUM(vd_popularity) as popularity ";
-$query3 .= "FROM videos ";
-$query3 .= "GROUP BY vd_date";
+$query2 = "SELECT COUNT(pop_id) as popularity, substr(pop_time,1,10) as time ";
+$query2 .= "FROM popularity ";
+$query2 .= "GROUP BY time";
 
-//echo $query3;
+//echo $query2;
 
-$result3 = mysqli_query($connection, $query3);
+$result2 = mysqli_query($connection, $query2);
 
-if (!$result3) {
-    die("query3 is wrong");
+if (!$result2) {
+    die("query2 is wrong");
 }
 
-while ($row3 = mysqli_fetch_array($result3)) {
+while ($row2 = mysqli_fetch_array($result2)) {
 
-        $tmonth .= '"' . $row3['vd_date'] . '",';
-        $tplayback .= $row3['popularity'] . ',';
+        $tmonth .= '"' . $row2['time'] . '",';
+        $tplayback .= $row2['popularity'] . ',';
 
 }
 $tmonth = substr($tmonth, 0, -1);
@@ -240,22 +246,28 @@ $tplayback = substr($tplayback, 0, -1);
 
 <?php
 //upload query
-$query2 = "SELECT count(vd_id) as total, vd_date ";
-$query2 .= "FROM videos ";
-$query2 .= "GROUP BY vd_date";
+$query3 = "SELECT count(vd_id) as total, substr(vd_date,1,10) as date ";
+$query3 .= "FROM videos ";
+$query3 .= "GROUP BY date";
 
-// echo $query2;
+// echo $query3;
 
-$result2 = mysqli_query($connection, $query2);
+$result3 = mysqli_query($connection, $query3);
 
-if (!$result2) {
-    die("query2 is wrong");
+if (!$result3) {
+    die("query3 is wrong");
 }
 
-while ($row2 = mysqli_fetch_array($result2)) {
+while ($row3 = mysqli_fetch_array($result3)) {
 
-        $month .= '"' . $row2['vd_date'] . '",';
-        $upload .= $row2['total'] . ',';
+        $month .= '"' . $row3['date'] . '",';
+        $upload .= $row3['total'] . ',';
+
+        $queryd  = "INSERT INTO admin_day (date, popularity) ";
+        $queryd .= "SELECT substr(vd_date,1,10) as date, count(vd_id) FROM vidoes ";
+        $queryd .= "GROUP BY date";
+        //echo $queryd;
+        mysqli_query($connection, $queryd);
 
 }
 $month = substr($month, 0, -1);

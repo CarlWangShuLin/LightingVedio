@@ -36,9 +36,10 @@ require('../includes/db.php');
                         <li><a href="admin.php" class="staticlinks">Chart</a></li>
                         <li><a href="admin.php?page=table" class="staticlinks" >Table list</a>
                             <ul>
-                            <li><a href="admin.php?page=table" class="staticlinks" >Account comment</a>
-                                <li><a href="admin.php?page=blog_video">Blog and video</a></li>
-                                <li><a href="admin.php?page=an_co">Announcement</a></li>
+                            <li><a href="admin.php?page=table" class="staticlinks" >Account and VIP</a>
+                                <li><a href="admin.php?page=video_cm">Video comment</a></li>
+                                <li><a href="admin.php?page=an">Announcement</a></li>
+                                <li><a href="admin.php?page=bg">Blog</a></li>
                                  </ul>
                         </li>
                             </ul>
