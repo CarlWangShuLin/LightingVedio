@@ -105,7 +105,7 @@ require_once('../includes/rank_list_header.php');
 
                     echo "<div class='desc'>";
 
-                    echo "<h3>" . "<a href='' class='colr'>" . $loop["bg_title"] . "</a>" . "</h3>";
+                    echo "<h3 class='colr'>" . $loop["bg_title"] . "</a>" . "</h3>";
 
                     if ($_SESSION['login_user'] == $row3['ac_name']) {
 

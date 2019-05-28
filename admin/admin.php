@@ -1,5 +1,6 @@
 <?php
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
+$pagelevel = 2;
 require_once('../includes/db.php');
 require_once('../includes/head.php');
 

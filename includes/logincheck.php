@@ -7,10 +7,9 @@ session_start();
 if (!isset($_SESSION['login_user'])) {
     header('location: ../log/login.php');
 }
-
-//if($_SESSION['login_level'] >= $pagelevel) {
-//} else {
-//    header('location: 404.php');
-//}
+if($_SESSION['login_level'] >= $pagelevel) {
+} else {
+    header('location: 404.php');
+}
 
 ?>

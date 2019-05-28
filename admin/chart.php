@@ -1,4 +1,5 @@
 <?php
+$pagelevel = 2;
 require_once('../includes/db.php');
 require_once('../includes/head.php');
 require_once('../includes/adminhead.php');

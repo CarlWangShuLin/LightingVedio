@@ -64,6 +64,7 @@ require('db.php');
                     <li><a href="../log/signup.php">Signup</a></li>
                     <li><a href="../myaccount/account.php">My account</a></li>
                     <li><a href="../payment/payment.php">VIP </a></li>
+                    <li><a href="../admin/chart.php">Admin </a></li>
                 </ul>
             </div>
         </div>

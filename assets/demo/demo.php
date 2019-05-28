@@ -70,7 +70,7 @@ demo = {
               }]
           },
           layout:{
-            padding:{left:0,right:0,top:15,bottom:15}
+            padding:{left:20,right:100,top:15,bottom:15}
           }
       };
 
@@ -112,7 +112,7 @@ demo = {
               }]
           },
           layout:{
-            padding:{left:0,right:0,top:15,bottom:15}
+            padding:{left:0,right:100,top:15,bottom:15}
           }
       };
 
@@ -163,7 +163,7 @@ $playback = substr($playback, 0, -1);
           data: {
               labels: [<?php echo $video; ?>],
               datasets: [{
-                  label: "Populaty",
+                  label: "Populatics",
                   borderColor: "#f96332",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#f96332",
@@ -220,7 +220,7 @@ $tplayback = substr($tplayback, 0, -1);
           data: {
               labels: [<?php echo $tmonth; ?>],
               datasets: [{
-                  label: "Population statistics",
+                  label: "Statistics",
                   borderColor: "#18ce0f",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#18ce0f",
